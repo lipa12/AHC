@@ -4,10 +4,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import auth
 from django.contrib import messages
 
+
 # Create your views here.
 
 def index(request):
-    return render(request, 'ahc_app/pages/forms/client_login.html')
+    return render(request, 'ahc_app/index4.html')
 
 
 def dashboard(request):
@@ -16,6 +17,12 @@ def dashboard(request):
 
 def dashboard2(request):
     return render(request, 'ahc_app/index2.html')
+
+def user_login(request):
+    return render(request, 'ahc_app/pages/forms/client_login.html')
+
+def signup(request):
+    return render(request, 'ahc_app/pages/forms/client_signup.html')
 
 
 def ahc_client_signup(request):
@@ -43,6 +50,8 @@ def ahc_client_signin(request):
                 messages.add_message(request, messages.ERROR, value, extra_tags='login')
             return redirect('/')
         else:
-            user = Signup_Ahc_Client.objects.get(ahc_client_email=request.POST['ahc_client_email']) and Signup_Ahc_Client.objects.get(ahc_client_password=request.POST['ahc_client_password'])
+            user = Signup_Ahc_Client.objects.get(
+                ahc_client_email=request.POST['ahc_client_email']) and Signup_Ahc_Client.objects.get(
+                ahc_client_password=request.POST['ahc_client_password'])
             request.session['ahc_client_email'] = user.ahc_client_email
             return redirect('ahc_app:dashboard2')

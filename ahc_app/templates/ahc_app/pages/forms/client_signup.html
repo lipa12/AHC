@@ -32,7 +32,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action = "signup/" method="post" accept-charset="utf-8">
+              <form action = "{% url 'ahc_app:ahc_client_signup'%}" method="post" accept-charset="utf-8">
                   {% csrf_token %}
                 <div class="card-body">
                   <div class="form-group">
@@ -63,6 +63,7 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
+
             </div>
             <!-- /.card -->
             </div>
