@@ -67,6 +67,7 @@ class UserManager(models.Manager):
 
         return errors
 
+
 class Signup_Ahc_Client(models.Model):
     ahc_client_id = models.IntegerField(auto_created=True)
     ahc_client_name = models.CharField(max_length=200)

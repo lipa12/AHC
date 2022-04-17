@@ -36,18 +36,6 @@ def ahc_client_signup(request):
 
 
 def ahc_client_signin(request):
-    # if request.method == 'POST':
-    #     if request.POST.get('ahc_client_email') and request.POST.get('ahc_client_password'):
-    #         ahc_client_signup = Signup_Ahc_Client.objects.filter(ahc_client_email='ahc_client_email')
-    #         print(ahc_client_signup)
-    #         # for i in ahc_client_signup:
-    #         #     print(i['ahc_client_email'])
-    #         if ahc_client_signup.ahc_client_email == request.POST('ahc_client_email') and ahc_client_signup.ahc_client_password == request.POST('ahc_client_password'):
-    #             return redirect('ahc_app:dashboard2')
-    #         else:
-    #             return redirect('ahc_app:ahc_client_signin')
-    #     else:
-    #         return render(request, 'ahc_app/pages/forms/client_signup.html')
     if request.method == "POST":
         errors = Signup_Ahc_Client.objects.login_validator(request.POST)
         if len(errors):
