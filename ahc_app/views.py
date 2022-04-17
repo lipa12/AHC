@@ -21,7 +21,7 @@ def dashboard2(request):
 def user_login(request):
     return render(request, 'ahc_app/pages/forms/client_login.html')
 
-def signup(request):
+def user_signup(request):
     return render(request, 'ahc_app/pages/forms/client_signup.html')
 
 
