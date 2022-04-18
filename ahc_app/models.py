@@ -69,7 +69,7 @@ class UserManager(models.Manager):
 
 
 class Signup_Ahc_Client(models.Model):
-    ahc_client_id = models.IntegerField(auto_created=True)
+    ahc_client_id = models.CharField(max_length=200,blank=True)
     ahc_client_name = models.CharField(max_length=200)
     ahc_client_mobile = models.IntegerField()
     ahc_client_email = models.EmailField()

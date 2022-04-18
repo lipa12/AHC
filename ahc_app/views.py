@@ -19,10 +19,10 @@ def dashboard2(request):
     return render(request, 'ahc_app/index2.html')
 
 def user_login(request):
-    return render(request, 'ahc_app/pages/forms/client_login.html')
+    return render(request, 'ahc_app/pages/forms/login-v2.html')
 
 def user_signup(request):
-    return render(request, 'ahc_app/pages/forms/client_signup.html')
+    return render(request, 'ahc_app/pages/forms/register-v2.html')
 
 
 def ahc_client_signup(request):
@@ -50,8 +50,8 @@ def ahc_client_signin(request):
                 messages.add_message(request, messages.ERROR, value, extra_tags='login')
             return redirect('/')
         else:
-            user = Signup_Ahc_Client.objects.get(
-                ahc_client_email=request.POST['ahc_client_email']) and Signup_Ahc_Client.objects.get(
-                ahc_client_password=request.POST['ahc_client_password'])
+            user = Signup_Ahc_Client.objects.filter(
+                ahc_client_email=request.POST['ahc_client_email']).first() and Signup_Ahc_Client.objects.filter(
+                ahc_client_password=request.POST['ahc_client_password']).first()
             request.session['ahc_client_email'] = user.ahc_client_email
             return redirect('ahc_app:dashboard2')
