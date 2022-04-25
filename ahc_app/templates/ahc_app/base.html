@@ -26,6 +26,11 @@
   <link rel="stylesheet" href="{% static "plugins/daterangepicker/daterangepicker.css"%}">
   <!-- summernote -->
   <link rel="stylesheet" href="{% static "plugins/summernote/summernote-bs4.min.css"%}">
+   <!-- Datatable -->
+  <link rel="stylesheet" href="{% static "plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" %}">
+  <link rel="stylesheet" href="{% static "plugins/datatables-responsive/css/responsive.bootstrap4.min.css "%}">
+  <link rel="stylesheet" href="{% static "plugins/datatables-buttons/css/buttons.bootstrap4.min.css "%}">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -84,6 +89,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
+                <a href="{% url 'loginuser' %}"></a>
               <img src="{% static "dist/img/user1-128x128.jpg"%}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
@@ -188,9 +194,16 @@
         <div class="image">
           <img src="{% static "dist/img/user2-160x160.jpg"%}" class="img-circle elevation-2" alt="User Image">
         </div>
+          {% if user.is_authenticated %}
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{ user.username }}</a>
         </div>
+          <form action="{% url 'logoutuser' %}" method="post">
+       {% csrf_token %}
+        <button type="submit">Logout</button>
+
+          </form>
+
       </div>
 
       <!-- SidebarSearch Form -->
@@ -210,35 +223,74 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+<!--          <li class="nav-item menu-open">-->
+<!--            <a href="#" class="nav-link active">-->
+<!--              <i class="nav-icon fas fa-tachometer-alt"></i>-->
+<!--              <p>-->
+<!--                Dashboard-->
+<!--                <i class="right fas fa-angle-left"></i>-->
+<!--              </p>-->
+<!--            </a>-->
+<!--            <ul class="nav nav-treeview">-->
+<!--              <li class="nav-item">-->
+<!--                <a href="./index.html" class="nav-link active">-->
+<!--                  <i class="far fa-circle nav-icon"></i>-->
+<!--                  <p>Dashboard v1</p>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a href="./index2.html" class="nav-link">-->
+<!--                  <i class="far fa-circle nav-icon"></i>-->
+<!--                  <p>Dashboard v2</p>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a href="./index3.html" class="nav-link">-->
+<!--                  <i class="far fa-circle nav-icon"></i>-->
+<!--                  <p>Dashboard v3</p>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </li>-->
+          <li class="nav-item">
+            <a href="{% url 'ahc_super_client:add_client'%}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
               <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
+                Add Client
+                <span class="right badge badge-danger">New</span>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
-            </ul>
           </li>
+          <li class="nav-item">
+            <a href="{% url 'ahc_super_client:client_list'%}" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Client List
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'ahc_super_client:client_profile'%}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Client Details
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'ahc_super_client:broker_profile'%}" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Broker Details
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+
+          </li>
+          {% else %}
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -842,6 +894,7 @@
             </a>
           </li>
         </ul>
+        {% endif %}
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -901,5 +954,36 @@
 <script src="{% static "dist/js/adminlte.js"%}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{% static "dist/js/pages/dashboard.js"%}"></script>
+
+<!-- DataTables  & Plugins -->
+<script src="{% static "plugins/datatables/jquery.dataTables.min.js"%}"></script>
+<script src="{% static "plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"%}"></script>
+<script src="{% static "plugins/datatables-responsive/js/dataTables.responsive.min.js"%}"></script>
+<script src="{% static "plugins/datatables-responsive/js/responsive.bootstrap4.min.js"%}"></script>
+<script src="{% static "plugins/datatables-buttons/js/dataTables.buttons.min.js"%}"></script>
+<script src="{% static "plugins/datatables-buttons/js/buttons.bootstrap4.min.js"%}"></script>
+<script src="{% static "/plugins/jszip/jszip.min.js"%}"></script>
+<script src="{% static "/plugins/pdfmake/pdfmake.min.js"%}"></script>
+<script src="{% static "plugins/pdfmake/vfs_fonts.js"%}"></script>
+<script src="{% static "plugins/datatables-buttons/js/buttons.html5.min.js"%}"></script>
+<script src="{% static "plugins/datatables-buttons/js/buttons.print.min.js"%}"></script>
+<script src="{% static "/plugins/datatables-buttons/js/buttons.colVis.min.js"%}"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
 </body>
 </html>

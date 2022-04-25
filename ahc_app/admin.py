@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Signup_Ahc_Client
+from .models import User
 # Register your models here.
 
-admin.site.register(Signup_Ahc_Client)
+admin.site.register(User)

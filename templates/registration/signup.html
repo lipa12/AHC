@@ -1,0 +1,8 @@
+{% block content %}
+  <h2>Sign up for a free account</h2>
+  <p class="lead">Select below the type of account you want to create</p>
+  <a href="{% url 'super_client_signup' %}" class="btn btn-student btn-lg" role="button">Super Client</a>
+  <a href="{% url 'client_signup' %}" class="btn btn-student btn-lg" role="button">Client</a>
+  <a href="{% url 'broker_signup' %}" class="btn btn-teacher btn-lg" role="button">Broker</a>
+{% endblock %}
+
