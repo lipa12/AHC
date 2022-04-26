@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from ahc_app.views import SignUpView
 from ahc_broker.views import BrokerSignUpView
-from ahc_super_client.views import SuperClientSignUpView
+from ahc_super_client.views import SuperClientSignUpView,AddNewClient
 from ahc_client.views import ClientSignUpView
 from ahc_app import views
 
@@ -31,6 +31,7 @@ urlpatterns = [
     path('accounts/signup/', SignUpView.as_view(), name='signup'),
     path('accounts/signup/broker/', BrokerSignUpView.as_view(), name='broker_signup'),
     path('accounts/signup/super_client/', SuperClientSignUpView.as_view(), name='super_client_signup'),
+    # path('accounts/signup/add_client/', AddNewClient.as_view(), name='add_client_form'),
     path('accounts/signup/client/', ClientSignUpView.as_view(), name='client_signup'),
     # path('', include('ahc_app.urls', namespace='ahc_app')),
 ]

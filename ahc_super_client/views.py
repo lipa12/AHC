@@ -10,6 +10,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView
 from ahc_app.decorators import broker_required
 from ahc_app.forms import SuperClientSignUpForm
+from ahc_super_client.forms import AddClientForm
 from ahc_app.models import User
 
 
@@ -47,3 +48,18 @@ class SuperClientSignUpView(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect('home')
+
+
+class AddNewClient(CreateView):
+    model = User
+    form_class = AddClientForm
+    template_name = 'ahc_app/pages/forms/add_client.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs['user_type'] = 'ahc_client'
+        return super().get_context_data(**kwargs)
+
+    def form_valid(self, form):
+        user = form.save()
+        #login(self.request, user)
+        return redirect('ahc_super_client:index')
