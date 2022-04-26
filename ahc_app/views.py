@@ -24,7 +24,6 @@ def home(request):
     return render(request, 'ahc_app/index4.html')
 
 
-
 # from django.shortcuts import render, redirect, get_object_or_404
 # from .models import *
 # from django.contrib.auth import authenticate, login, logout
@@ -41,15 +40,20 @@ def index(request):
 
 def dashboard(request):
     return render(request, 'ahc_app/index.html')
-#
-#
+
+
 def dashboard2(request):
     return render(request, 'ahc_app/index2.html')
+
+
 def dashboard3(request):
     return render(request, 'ahc_app/index3.html')
+
+
 #
 def user_login(request):
     return render(request, 'ahc_app/pages/forms/login-v2.html')
+
 
 # def user_signup(request):
 #     return render(request, 'ahc_app/pages/forms/register-v2.html')
@@ -121,6 +125,7 @@ def loginuser(request):
                 else:
                     return redirect('login')
             return redirect('ahc_app:dashboard')
+
 
 def logoutuser(request):
     if request.method == 'POST':
