@@ -1,0 +1,139 @@
+{% extends 'ahc_app/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>DataTables</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">DataTables</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">DataTable with default features</h3>
+              </div>
+
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>SYMBOL</th>
+                    <th>Expiry Date</th>
+                    <th>Strike price</th>
+                    <th>CE/PE/FUT</th>
+                    <th>(MIS / NRML)</th>
+                    <th>(BUY/SELL)</th>
+                    <th>Order Quantity</th>
+                    <th>Partial Exit Quantity</th>
+                    <th>Target (Price)</th>
+                    <th>Buy / Sell (Price)</th>
+                    <th>Buy / Sell (SPOT PRICE)</th>
+                    <th>Stop Loss (Price)</th>
+                    <th>Profit Trailing</th>
+                    <th>Trailing SL Points</th>
+                    <th>M/MA/MB</th>
+                    <th>Current SL position</th>
+                    <th>Trade Status</th>
+                    <th>Executed Price</th>
+                    <th>Live LTP</th>
+                    <th>VWAP</th>
+                    <th>MTM</th>
+                    <th>IV</th>
+                    <th>Delta</th>
+                    <th>Gamma</th>
+                    <th>Theta</th>
+                    <th>Vega</th>
+                    <th>Volume</th>
+                    <th>Lot size</th>
+                    <th>Capital Required to Buy</th>
+                    <th>order ID</th>
+                    <th>Current Profit position</th>
+                    <th>Entry Time</th>
+                    <th>Exit Time</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Trident</td>
+                    <td>Internet
+                      Explorer 4.0
+                    </td>
+                    <td>Win 95+</td>
+                    <td> 4</td>
+                      <td>Trident</td>
+                    <td>Internet
+                      Explorer 4.0
+                    </td>
+                    <td>Win 95+</td>
+                    <td> 4</td>
+                      <td>Trident</td>
+                    <td>Internet
+                      Explorer 4.0
+                    </td>
+                    <td>Win 95+</td>
+                    <td> 4</td>
+                      <td>Trident</td>
+                    <td>Internet
+                      Explorer 4.0
+                    </td>
+                    <td>Win 95+</td>
+                    <td> 4</td>
+                      <td>Trident</td>
+                    <td>Internet
+                      Explorer 4.0
+                    </td>
+                    <td>Win 95+</td>
+                    <td> 4</td>
+                      <td>Trident</td>
+                    <td>Internet
+                      Explorer 4.0
+                    </td>
+                    <td>Win 95+</td>
+                    <td> 4</td>
+                      <td>Trident</td>
+                    <td>Internet
+                      Explorer 4.0
+                    </td>
+                    <td>Win 95+</td>
+                    <td> 4</td>
+                      <td>Trident</td>
+                    <td>Internet
+                      Explorer 4.0
+                    </td>
+                    <td>Win 95+</td>
+                    <td>4</td>
+                    <td>4</td>
+                  </tr>
+
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+  </div>
+{% endblock %}
