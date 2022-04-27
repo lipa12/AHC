@@ -61,5 +61,5 @@ class AddNewClient(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        #login(self.request, user)
+        login(self.request, user)
         return redirect('ahc_super_client:index')
