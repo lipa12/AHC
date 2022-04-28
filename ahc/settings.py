@@ -133,7 +133,7 @@ LOGOUT_URL = 'logout'
 
 LOGIN_REDIRECT_URL = 'home'
 
-LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'loginuser'
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-secondary',
