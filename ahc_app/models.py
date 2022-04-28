@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from django.utils.html import escape, mark_safe
 
 
@@ -9,6 +11,8 @@ class User(AbstractUser):
     is_client = models.BooleanField(default=False)
     is_super_client = models.BooleanField(default=False)
     is_broker = models.BooleanField(default=False)
+    start_date = models.DateTimeField(_("Start Date"), default=timezone.now)
+    expiry_date = models.DateTimeField(_("Expiry Date"), default=timezone.now)
 
 
 # import re
