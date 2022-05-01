@@ -4,18 +4,13 @@ from django.db import models
 class NiftyBanknifty(models.Model):
     nifty_spot = models.FloatField()
     nifty_future = models.FloatField()
-    nifty_profit = models.FloatField()
-    nifty_loss = models.FloatField()
-    nifty_MTM = models.FloatField()
-    nifty_LV = models.FloatField()
-    nifty_PV = models.FloatField()
-    banknifty_spot = models.FloatField()
-    banknifty_future = models.FloatField()
-    banknifty_profit = models.FloatField()
-    banknifty_loss = models.FloatField()
-    banknifty_MTM = models.FloatField()
-    banknifty_LV = models.FloatField()
-    banknifty_PV = models.FloatField()
+    bank_nifty_spot = models.FloatField()
+    bank_nifty_future = models.FloatField()
+    profit = models.FloatField()
+    loss = models.FloatField()
+    mtm = models.FloatField()
+    vt = models.FloatField()
+    lt = models.FloatField()
 
 
 class TradeStrategies(models.Model):
@@ -53,4 +48,3 @@ class TradeStrategies(models.Model):
     current_profit_position = models.FloatField()
     entry_time = models.DateTimeField()
     exit_time = models.DateTimeField()
-    #LIPSA

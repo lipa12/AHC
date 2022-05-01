@@ -36,4 +36,8 @@ class ClientSignUpView(CreateView):
 def trade_strategies(request):
     trade = TradeStrategies.objects.all()
     return render(request, 'ahc_app/pages/tables/trades.html', {'trade': trade})
-#LIPSA
+
+
+def nifty_banknifty(request):
+    data = NiftyBanknifty.objects.all()
+    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data})

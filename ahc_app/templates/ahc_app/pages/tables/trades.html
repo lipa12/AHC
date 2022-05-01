@@ -43,21 +43,23 @@
                     <th>Profit</th>
                     <th>Loss</th>
                     <th>VT</th>
-                    <th>IV</th>
+                    <th>LT</th>
                   </tr>
                   </thead>
                   <tbody>
+                  {% for data in data %}
                   <tr>
-                    <td>Trident</td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td>X</td>
+                    <td>{{data.nifty_spot}}</td>
+                    <td>{{data.nifty_future}}</td>
+                    <td>{{data.bank_nifty_spot}}</td>
+                    <td>{{data.bank_nifty_future}}</td>
+                    <td>{{data.mtm}}</td>
+                    <td>{{data.profit}}</td>
+                    <td>{{data.loss}}</td>
+                    <td>{{data.vt}}</td>
+                    <td>{{data.lt}}</td>
                   </tr>
+                  {% endfor %}
                   </tbody>
                   <tfoot>
                   </tfoot>
