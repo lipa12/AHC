@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
+from ahc_admin.views import AdminSignUpView
 from ahc_app.views import SignUpView
 from ahc_broker.views import BrokerSignUpView
 from ahc_super_client.views import SuperClientSignUpView,AddNewClient
@@ -31,7 +33,7 @@ urlpatterns = [
     path('login/', views.loginuser, name='loginuser'),
     path('logout/', views.logoutuser, name='logoutuser'),
     path('accounts/signup/', SignUpView.as_view(), name='signup'),
-    path('accounts/signup/ahc_admin', AhcAdminSignUpView.as_view(), name='ahc_admin_signup'),
+    path('accounts/signup/ahc_admin', AdminSignUpView.as_view(), name='ahc_admin_signup'),
     path('accounts/signup/broker/', BrokerSignUpView.as_view(), name='broker_signup'),
     path('accounts/signup/super_client/', SuperClientSignUpView.as_view(), name='super_client_signup'),
     # path('accounts/signup/add_client/', AddNewClient.as_view(), name='add_client_form'),
