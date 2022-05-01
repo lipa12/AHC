@@ -11,6 +11,7 @@ class User(AbstractUser):
     is_client = models.BooleanField(default=False)
     is_super_client = models.BooleanField(default=False)
     is_broker = models.BooleanField(default=False)
+    is_ahc_admin = models.BooleanField(default=False)
     start_date = models.DateTimeField(_("Start Date"), default=timezone.now)
     expiry_date = models.DateTimeField(_("Expiry Date"), default=timezone.now)
 

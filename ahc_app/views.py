@@ -7,6 +7,7 @@ from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 
+
 class SignUpView(TemplateView):
     template_name = 'registration/signup.html'
 
@@ -15,14 +16,15 @@ def home(request):
     if request.user.is_authenticated:
         if request.user.is_super_client:
             return redirect('super_client/')
+        elif request.user.is_ahc_admin:
+            return redirect('ahc_admin/')
         elif request.user.is_client:
             return redirect('ahc_app:dashboard2')
         elif request.user.is_broker:
             return redirect('ahc_app:dashboard3')
         else:
-            return redirect('login')
+            return redirect('loginuser')
     return render(request, 'ahc_app/index4.html')
-
 
 
 # from django.shortcuts import render, redirect, get_object_or_404
@@ -41,15 +43,22 @@ def index(request):
 
 def dashboard(request):
     return render(request, 'ahc_app/index.html')
+
+
 #
 #
 def dashboard2(request):
     return render(request, 'ahc_app/index2.html')
+
+
 def dashboard3(request):
     return render(request, 'ahc_app/index3.html')
+
+
 #
 def user_login(request):
     return render(request, 'ahc_app/pages/forms/login-v2.html')
+
 
 # def user_signup(request):
 #     return render(request, 'ahc_app/pages/forms/register-v2.html')
@@ -114,6 +123,8 @@ def loginuser(request):
             if request.user.is_authenticated:
                 if request.user.is_super_client:
                     return redirect('ahc_super_client:index')
+                elif request.user.is_ahc_admin:
+                    return redirect('ahc_admin:index')
                 elif request.user.is_client:
                     return redirect('ahc_app:dashboard2')
                 elif request.user.is_broker:
@@ -121,6 +132,7 @@ def loginuser(request):
                 else:
                     return redirect('login')
             return redirect('ahc_app:dashboard')
+
 
 def logoutuser(request):
     if request.method == 'POST':

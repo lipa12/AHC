@@ -16,7 +16,7 @@ from ahc_app.models import User
 
 def index(request):
     # return render(request, 'ahc_app/pages/forms/add_client.html')
-    return render(request, 'ahc_app/index.html')
+    return render(request, 'ahc_app/ahc_admin.html')
 
 
 def add_client(request):
@@ -39,19 +39,6 @@ def broker_profile(request):
     return render(request, 'ahc_app/pages/profile/broker_profile.html')
 
 
-class SuperClientSignUpView(CreateView):
-    model = User
-    form_class = SuperClientSignUpForm
-    template_name = 'registration/signup_form.html'
-
-    def get_context_data(self, **kwargs):
-        kwargs['user_type'] = 'ahc_super_client'
-        return super().get_context_data(**kwargs)
-
-    def form_valid(self, form):
-        user = form.save()
-        login(self.request, user)
-        return redirect('home')
 
 
 class AddNewClient(CreateView):
@@ -66,4 +53,19 @@ class AddNewClient(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('ahc_super_client:index')
+        return redirect('ahc_admin:index')
+
+
+class AdminSignUpView(CreateView):
+    model = User
+    form_class = SuperClientSignUpForm
+    template_name = 'registration/signup_form.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs['user_type'] = 'ahc_admin'
+        return super().get_context_data(**kwargs)
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('loginuser')
