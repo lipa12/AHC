@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from .views import AddNewClient
 
-app_name = "ahc_super_client"
+app_name = "ahc_admin"
 
 urlpatterns = [
     path('', views.index, name='index'),
