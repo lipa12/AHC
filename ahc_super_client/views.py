@@ -24,6 +24,9 @@ def add_client(request):
 
 
 def client_list(request):
+    return render(request, 'ahc_app/pages/tables/client_list.html')
+
+def trade(request):
     return render(request, 'ahc_app/pages/tables/trades.html')
 
 

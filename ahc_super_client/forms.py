@@ -5,8 +5,7 @@ from ahc_app.models import User
 
 
 class AddClientForm(UserCreationForm):
-    super_client_username = forms.CharField(max_length=32, help_text='User name',widget=forms.TextInput(attrs={'placeholder': 'username'}))
-    username = forms.CharField(max_length=32, help_text='User name',widget=forms.TextInput(attrs={'placeholder': 'username'}))
+    username = forms.CharField(max_length=32, help_text='First name',widget=forms.TextInput(attrs={'placeholder': 'username'}))
     first_name = forms.CharField(max_length=32, help_text='First name',widget=forms.TextInput(attrs={'placeholder': 'First Name'}))
     last_name = forms.CharField(max_length=32, help_text='Last name',widget=forms.TextInput(attrs={'placeholder': 'Last Name'}))
     email = forms.EmailField(max_length=64,
@@ -17,8 +16,6 @@ class AddClientForm(UserCreationForm):
                                 widget=forms.TextInput(attrs={'placeholder': 'Password'}))
     password2 = forms.CharField(max_length=32, help_text='Retype Password',
                                 widget=forms.TextInput(attrs={'placeholder': 'Retype Password'}))
-    # start_date = forms.DateField() LIPSA
-    # end_date = forms.DateField()
 
     class Meta(UserCreationForm.Meta):
         model = User

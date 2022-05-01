@@ -16,8 +16,6 @@ class ClientSignUpForm(UserCreationForm):
                                 widget=forms.TextInput(attrs={'placeholder': 'Password'}))
     password2 = forms.CharField(max_length=32, help_text='Retype Password',
                                 widget=forms.TextInput(attrs={'placeholder': 'Retype Password'}))
-    # start_date = forms.DateField()
-    # end_date = forms.DateField()
 
     class Meta(UserCreationForm.Meta):
         model = User
@@ -47,8 +45,6 @@ class SuperClientSignUpForm(UserCreationForm):
                                 widget=forms.TextInput(attrs={'placeholder': 'Password'}))
     password2 = forms.CharField(max_length=32, help_text='Retype Password',
                                 widget=forms.TextInput(attrs={'placeholder': 'Retype Password'}))
-    # start_date = forms.DateField()
-    # end_date = forms.DateField()
 
     class Meta(UserCreationForm.Meta):
         model = User
@@ -78,8 +74,6 @@ class BrokerSignUpForm(UserCreationForm):
                                 widget=forms.TextInput(attrs={'placeholder': 'Password'}))
     password2 = forms.CharField(max_length=32, help_text='Retype Password',
                                 widget=forms.TextInput(attrs={'placeholder': 'Retype Password'}))
-    # start_date = forms.DateField()
-    # end_date = forms.DateField()
 
     class Meta(UserCreationForm.Meta):
         model = User
