@@ -24,7 +24,8 @@ from ahc_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ahc_app.urls')),
-    path('super_client/', include(('ahc_super_client.urls','ahc_super_client'), namespace='ahc_super_client')),
+    path('super_client/', include(('ahc_super_client.urls', 'ahc_super_client'), namespace='ahc_super_client')),
+    path('client/', include(('ahc_client.urls', 'ahc_client'), namespace='ahc_client')),
     # path('accounts/', include('django.contrib.auth.urls')),
     path('login/', views.loginuser, name='loginuser'),
     path('logout/', views.logoutuser, name='logoutuser'),
@@ -33,5 +34,5 @@ urlpatterns = [
     path('accounts/signup/super_client/', SuperClientSignUpView.as_view(), name='super_client_signup'),
     # path('accounts/signup/add_client/', AddNewClient.as_view(), name='add_client_form'),
     path('accounts/signup/client/', ClientSignUpView.as_view(), name='client_signup'),
-    # path('', include('ahc_app.urls', namespace='ahc_app')),
+    # path('', include('ahc_app.urls', LIPSA namespace='ahc_app')),
 ]

@@ -11,6 +11,7 @@ from django.views.generic import CreateView, ListView, UpdateView
 from ahc_app.decorators import broker_required
 from ahc_app.forms import ClientSignUpForm
 from ahc_app.models import User
+from .models import TradeStrategies, NiftyBanknifty
 
 
 def index(request):
@@ -30,3 +31,9 @@ class ClientSignUpView(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect('loginuser')
+
+
+def trade_strategies(request):
+    trade = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/tables/trades.html', {'trade': trade})
+#LIPSA

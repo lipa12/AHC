@@ -29,7 +29,7 @@
                 <h3 class="card-title">DataTable with default features</h3>
               </div>
 
-              <!-- /.card-header -->
+              <!-- /.card-header LIPSA -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -70,57 +70,43 @@
                   </tr>
                   </thead>
                   <tbody>
+                  {% for trade in trade %}
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>4</td>
-                    <td>4</td>
+                    <td>{{trade.symbol}}</td>
+                    <td>{{trade.expiry_date}}</td>
+                    <td>{{trade.strike_price}}</td>
+                    <td>{{trade.ce_pe_fut}}</td>
+                    <td>{{trade.mis_nrml}}</td>
+                    <td>{{trade.buy_sell}}</td>
+                    <td>{{trade.order_quantity}}</td>
+                    <td>{{trade.partial_exit_quantity}}</td>
+                    <td>{{trade.target}}</td>
+                    <td>{{trade.buy_sell_spotprice}}</td>
+                    <td>{{trade.stop_loss}}</td>
+                    <td>{{trade.profit_trailing}}</td>
+                    <td>{{trade.trailing_sl_points}}</td>
+                    <td>{{trade.m_ma_mb}}</td>
+                    <td>{{trade.current_sl_position}}</td>
+                    <td>{{trade.trade_status}}</td>
+                    <td>{{trade.executed_price}}</td>
+                    <td>{{trade.live_ltp}}</td>
+                    <td>{{trade.vwap}}</td>
+                    <td>{{trade.mtm}}</td>
+                    <td>{{trade.iv}}</td>
+                    <td>{{trade.delta}}</td>
+                    <td>{{trade.gamma}}</td>
+                    <td>{{trade.rho}}</td>
+                    <td>{{trade.theta}}</td>
+                    <td>{{trade.vega}}</td>
+                    <td>{{trade.volume}}</td>
+                    <td>{{trade.lot_size}}</td>
+                    <td>{{trade.capital_required_to_buy}}</td>
+                    <td>{{trade.order_id}}</td>
+                    <td>{{trade.current_profit_position}}</td>
+                    <td>{{trade.entry_time}}</td>
+                    <td>{{trade.exit_time}}</td>
                   </tr>
+                  {% endfor %}
 
                   </tfoot>
                 </table>
