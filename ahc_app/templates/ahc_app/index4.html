@@ -8,13 +8,10 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0"></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
+
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -41,51 +38,51 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-              </div>
-              <p>Sign Up</p>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="{% url 'super_client_signup'%}" class="small-box-footer">Super Client <i class="fas fa-arrow-circle-right"></i></a>
-              <a href="{% url 'client_signup'%}" class="small-box-footer">Client <i class="fas fa-arrow-circle-right"></i></a>
-              <a href="{% url 'broker_signup'%}" class="small-box-footer">Broker <i class="fas fa-arrow-circle-right"></i></a>
-              <a href="{% url 'ahc_admin_signup'%}" class="small-box-footer">Admin <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-                    <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-
-                <p>Client</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="{% url 'client_signup'%}" class="small-box-footer">Sign up here <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+{#          <div class="col-lg-3 col-6">#}
+{#            <!-- small box -->#}
+{#            <div class="small-box bg-success">#}
+{#              <div class="inner">#}
+{#              </div>#}
+{#              <p>Super Client</p>#}
+{#              <div class="icon">#}
+{#                <i class="ion ion-stats-bars"></i>#}
+{#              </div>#}
+{#              <a href="{% url 'super_client_signup'%}" class="small-box-footer">Sign up<i class="fas fa-arrow-circle-right"></i></a>#}
+{#              <a href="{% url 'client_signup'%}" class="small-box-footer">Client <i class="fas fa-arrow-circle-right"></i></a>#}
+{#              <a href="{% url 'broker_signup'%}" class="small-box-footer">Broker <i class="fas fa-arrow-circle-right"></i></a>#}
+{#              <a href="{% url 'ahc_admin_signup'%}" class="small-box-footer">Admin <i class="fas fa-arrow-circle-right"></i></a>#}
+{#            </div>#}
+{#          </div>#}
+{#          <!-- ./col -->#}
+{#                    <!-- ./col -->#}
+{#          <div class="col-lg-3 col-6">#}
+{#            <!-- small box -->#}
+{#            <div class="small-box bg-success">#}
+{#              <div class="inner">#}
+{##}
+{#                <p>Client</p>#}
+{#              </div>#}
+{#              <div class="icon">#}
+{#                <i class="ion ion-stats-bars"></i>#}
+{#              </div>#}
+{#              <a href="{% url 'client_signup'%}" class="small-box-footer">Sign up here <i class="fas fa-arrow-circle-right"></i></a>#}
+{#            </div>#}
+{#          </div>#}
           <!-- ./col -->
                     <!-- ./col  -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-
-                <p>Broker</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="{% url 'broker_signup'%}" class="small-box-footer">Sign up here <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+{#          <div class="col-lg-3 col-6">#}
+{#            <!-- small box -->#}
+{#            <div class="small-box bg-success">#}
+{#              <div class="inner">#}
+{##}
+{#                <p>Broker</p>#}
+{#              </div>#}
+{#              <div class="icon">#}
+{#                <i class="ion ion-stats-bars"></i>#}
+{#              </div>#}
+{#              <a href="{% url 'broker_signup'%}" class="small-box-footer">Sign up here <i class="fas fa-arrow-circle-right"></i></a>#}
+{#            </div>#}
+{#          </div>#}
           <!-- ./col -->
             <!-- ./col -->
           <!-- ./col -->
@@ -96,14 +93,12 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
-
-                <p>User Registrations</p>
+                <p>Client Signup</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{% url 'client_signup'%}" class="small-box-footer">Client Signup <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -111,14 +106,12 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
+                <p>Super Client</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{% url 'super_client_signup'%}" class="small-box-footer">Super Client <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
