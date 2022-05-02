@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from ahc_app.models import User
 
 
 class SignUpView(TemplateView):
@@ -138,3 +139,6 @@ def logoutuser(request):
     if request.method == 'POST':
         logout(request)
         return redirect('loginuser')
+
+
+
