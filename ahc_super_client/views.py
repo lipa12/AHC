@@ -12,6 +12,7 @@ from ahc_app.decorators import broker_required
 from ahc_app.forms import SuperClientSignUpForm
 from ahc_super_client.forms import AddClientForm
 from ahc_app.models import User
+from ahc_client.models import NiftyBanknifty, TradeStrategies
 
 
 def index(request):
@@ -24,11 +25,13 @@ def add_client(request):
 
 
 def client_list(request):
-    return render(request, 'ahc_app/pages/tables/client_list.html')
+    client_list = User.objects.all()
+    return render(request, 'ahc_app/pages/tables/client_list.html', {'client_list':client_list})
 
 
 def trade(request):
-    return render(request, 'ahc_app/pages/tables/trades.html')
+    data = NiftyBanknifty.objects.all()
+    return render(request, 'ahc_app/pages/tables/trades.html',{'data': data})
 
 
 def client_profile(request):
@@ -67,3 +70,8 @@ class AddNewClient(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect('ahc_super_client:index')
+
+
+def nifty_banknifty(request):
+    data = NiftyBanknifty.objects.all()
+    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data})

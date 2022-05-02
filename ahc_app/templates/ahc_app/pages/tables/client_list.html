@@ -40,15 +40,16 @@
                   </tr>
                   </thead>
                   <tbody>
+                  {% for client_list in client_list %}
                   <tr>
-                    <td>Trident</td>
+                    <td>{{client_list.username}}</td>
                     <td>Internet
                       Explorer 4.0
                     </td>
-                    <td>Win 95+</td>
+                    <td>{{client_list.expiry_date}}</td>
                     <td> 4</td>
                   </tr>
-
+                {% endfor %}
                   </tfoot>
                 </table>
               </div>
