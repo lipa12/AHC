@@ -34,20 +34,14 @@
                   <thead>
                   <tr>
                     <th>Client</th>
-                    <th>Broker</th>
                     <th>Validity</th>
-                    <th>Log Files</th>
                   </tr>
                   </thead>
                   <tbody>
                   {% for client_list in client_list %}
                   <tr>
                     <td>{{client_list.username}}</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
                     <td>{{client_list.expiry_date}}</td>
-                    <td> 4</td>
                   </tr>
                 {% endfor %}
                   </tfoot>
