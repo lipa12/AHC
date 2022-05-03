@@ -20,17 +20,18 @@ def index(request):
 
 
 def add_client(request):
+    user = request.user.username
     return render(request, 'ahc_app/pages/forms/add_client.html')
 
 
 def client_list(request):
     client_list = User.objects.filter(is_client=True)
-    return render(request, 'ahc_app/pages/tables/admin_client_list.html',{'client_list':client_list})
+    return render(request, 'ahc_app/pages/tables/admin_client_list.html', {'client_list': client_list})
 
 
 def master_client_list(request):
     master_client_list = User.objects.filter(is_super_client=True)
-    return render(request, 'ahc_app/pages/tables/master_client_list.html',{'master_client_list':master_client_list})
+    return render(request, 'ahc_app/pages/tables/master_client_list.html', {'master_client_list': master_client_list})
 
 
 def trade(request):
