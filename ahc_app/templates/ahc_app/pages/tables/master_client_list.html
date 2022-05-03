@@ -9,12 +9,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>Master Client List</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
+              <li class="breadcrumb-item active">Master Client List</li>
             </ol>
           </div>
         </div>
@@ -26,7 +26,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title"></h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -38,14 +38,11 @@
                   </tr>
                   </thead>
                   <tbody>
-                  {% for client_list in client_list %}
+                  {% for master_client_list in master_client_list %}
                   <tr>
-                    <td>{{client_list.username}}</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>{{client_list.expiry_date}}</td>
-                    <td> 4</td>
+                    <td>{{master_client_list.username}}</td>
+                    <td>{{master_client_list.expiry_date}}</td>
+
                   </tr>
                 {% endfor %}
                   </tfoot>

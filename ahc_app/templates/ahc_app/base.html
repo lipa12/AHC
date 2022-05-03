@@ -373,7 +373,7 @@
 <!--            </ul>-->
 <!--          </li>-->
           <li class="nav-item">
-            <a href="{% url 'ahc_super_client:add_client_form' %}" class="nav-link">
+            <a href="{% url 'ahc_admin:add_client_form' %}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Add Client
@@ -382,7 +382,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{% url 'ahc_super_client:client_list'%}" class="nav-link">
+            <a href="{% url 'ahc_admin:client_list'%}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Client List
@@ -391,8 +391,18 @@
             </a>
 
           </li>
+            <li class="nav-item">
+            <a href="{% url 'ahc_admin:master_client_list'%}" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Master Client List
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+
+          </li>
           <li class="nav-item">
-            <a href="{% url 'ahc_super_client:client_profile'%}" class="nav-link">
+            <a href="{% url 'ahc_admin:client_profile'%}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Client Details
@@ -401,7 +411,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{% url 'ahc_super_client:broker_profile'%}" class="nav-link">
+            <a href="{% url 'ahc_admin:broker_profile'%}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Broker Details
@@ -411,7 +421,7 @@
 
           </li>
             <li class="nav-item">
-            <a href="{% url 'ahc_super_client:trade'%}" class="nav-link">
+            <a href="{% url 'ahc_admin:trade'%}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Trading Strategies
@@ -420,6 +430,7 @@
             </a>
 
           </li>
+
 
 
         </ul>

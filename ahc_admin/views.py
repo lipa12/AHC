@@ -24,7 +24,13 @@ def add_client(request):
 
 
 def client_list(request):
-    return render(request, 'ahc_app/pages/tables/client_list.html')
+    client_list = User.objects.filter(is_client=True)
+    return render(request, 'ahc_app/pages/tables/admin_client_list.html',{'client_list':client_list})
+
+
+def master_client_list(request):
+    master_client_list = User.objects.filter(is_super_client=True)
+    return render(request, 'ahc_app/pages/tables/master_client_list.html',{'master_client_list':master_client_list})
 
 
 def trade(request):
@@ -37,8 +43,6 @@ def client_profile(request):
 
 def broker_profile(request):
     return render(request, 'ahc_app/pages/profile/broker_profile.html')
-
-
 
 
 class AddNewClient(CreateView):
