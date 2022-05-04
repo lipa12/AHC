@@ -1,8 +1,14 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-
+from django.shortcuts import get_object_or_404, redirect, render
 from ahc_app.models import User
 
+
+def test(request):
+    user = str(request.user.username)
+    print(user)
+    username = str(user)
+    return username
 
 class AddClientForm(UserCreationForm):
     username = forms.CharField(max_length=32, help_text='First name',
@@ -28,6 +34,7 @@ class AddClientForm(UserCreationForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.is_client = True
+        user.super_client_username = user.username
         if commit:
             user.save()
         return user

@@ -16,6 +16,13 @@ from ahc_client.models import NiftyBanknifty, TradeStrategies
 
 
 def index(request):
+    return render(request, 'ahc_app/index.html')
+
+
+def test(request):
+    user = request.user.username
+    username = str(user)
+    print(username)
     # return render(request, 'ahc_app/pages/forms/add_client.html')
     return render(request, 'ahc_app/index.html')
 
@@ -53,7 +60,7 @@ class SuperClientSignUpView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        login(self.request, user)
+        #login(self.request, user)
         return redirect('home')
 
 
@@ -68,9 +75,8 @@ class AddNewClient(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        login(self.request, user)
+        #login(self.request, user)
         return redirect('ahc_super_client:index')
-
 
 def nifty_banknifty(request):
     data = NiftyBanknifty.objects.all()
