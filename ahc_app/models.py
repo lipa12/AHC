@@ -14,7 +14,7 @@ class User(AbstractUser):
     is_ahc_admin = models.BooleanField(default=False)
     start_date = models.DateTimeField(_("Start Date"), default=timezone.now)
     expiry_date = models.DateTimeField(_("Expiry Date"), default=timezone.now)
-    super_client_username = models.CharField(max_length=100,blank=True)
+    super_client_username = models.CharField(max_length=100, blank=True)
 
 
 # import re

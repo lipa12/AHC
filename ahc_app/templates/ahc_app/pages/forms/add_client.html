@@ -37,6 +37,10 @@
               <form method="post" accept-charset="utf-8" novalidate >
                   {% csrf_token %}
                 <div class="card-body">
+                   <div class="form-group">
+                    <label>Super Client User Name</label>
+                    {{ form.super_client_username}}
+                  </div>
                   <div class="form-group">
                     <label>User Name</label>
                     {{ form.username}}

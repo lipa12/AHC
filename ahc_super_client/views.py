@@ -32,7 +32,8 @@ def add_client(request):
 
 
 def client_list(request):
-    client_list = User.objects.all()
+    user = request.user.username
+    client_list = User.objects.filter(super_client_username = user)
     return render(request, 'ahc_app/pages/tables/client_list.html', {'client_list':client_list})
 
 
