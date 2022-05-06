@@ -223,35 +223,6 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-<!--          <li class="nav-item menu-open">-->
-<!--            <a href="#" class="nav-link active">-->
-<!--              <i class="nav-icon fas fa-tachometer-alt"></i>-->
-<!--              <p>-->
-<!--                Dashboard-->
-<!--                <i class="right fas fa-angle-left"></i>-->
-<!--              </p>-->
-<!--            </a>-->
-<!--            <ul class="nav nav-treeview">-->
-<!--              <li class="nav-item">-->
-<!--                <a href="./index.html" class="nav-link active">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v1</p>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="nav-item">-->
-<!--                <a href="./index2.html" class="nav-link">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v2</p>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="nav-item">-->
-<!--                <a href="./index3.html" class="nav-link">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v3</p>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--            </ul>-->
-<!--          </li>-->
           <li class="nav-item">
             <a href="{% url 'ahc_super_client:add_client_form' %}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -290,17 +261,18 @@
             </a>
 
           </li>
+          {% for data in data %}
             <li class="nav-item">
             <a href="{% url 'ahc_super_client:trade'%}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Trading Strategies
+                Trading Strategies {{data.strategies}}
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
 
           </li>
-
+          {% endfor %}
 
         </ul>
 
@@ -343,35 +315,6 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-<!--          <li class="nav-item menu-open">-->
-<!--            <a href="#" class="nav-link active">-->
-<!--              <i class="nav-icon fas fa-tachometer-alt"></i>-->
-<!--              <p>-->
-<!--                Dashboard-->
-<!--                <i class="right fas fa-angle-left"></i>-->
-<!--              </p>-->
-<!--            </a>-->
-<!--            <ul class="nav nav-treeview">-->
-<!--              <li class="nav-item">-->
-<!--                <a href="./index.html" class="nav-link active">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v1</p>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="nav-item">-->
-<!--                <a href="./index2.html" class="nav-link">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v2</p>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="nav-item">-->
-<!--                <a href="./index3.html" class="nav-link">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v3</p>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--            </ul>-->
-<!--          </li>-->
           <li class="nav-item">
             <a href="{% url 'ahc_admin:add_client_form' %}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -472,39 +415,6 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-<!--          <li class="nav-item menu-open">-->
-<!--            <a href="#" class="nav-link active">-->
-<!--              <i class="nav-icon fas fa-tachometer-alt"></i>-->
-<!--              <p>-->
-<!--                Dashboard-->
-<!--                <i class="right fas fa-angle-left"></i>-->
-<!--              </p>-->
-<!--            </a>-->
-<!--            <ul class="nav nav-treeview">-->
-<!--              <li class="nav-item">-->
-<!--                <a href="./index.html" class="nav-link active">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v1</p>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="nav-item">-->
-<!--                <a href="./index2.html" class="nav-link">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v2</p>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="nav-item">-->
-<!--                <a href="./index3.html" class="nav-link">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v3</p>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--            </ul>-->
-<!--          </li>-->
-
-
           <li class="nav-item">
             <a href="{% url 'ahc_client:client_profile'%}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -514,17 +424,18 @@
               </p>
             </a>
           </li>
+          {% for data in data %}
             <li class="nav-item">
             <a href="{% url 'ahc_client:trade_strategies'%}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Trading Strategies
+                Trading Strategies {{data.strategies}}
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
 
           </li>
-
+        {% endfor %}
 
         </ul>
 
@@ -565,41 +476,8 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-<!--          <li class="nav-item menu-open">-->
-<!--            <a href="#" class="nav-link active">-->
-<!--              <i class="nav-icon fas fa-tachometer-alt"></i>-->
-<!--              <p>-->
-<!--                Dashboard-->
-<!--                <i class="right fas fa-angle-left"></i>-->
-<!--              </p>-->
-<!--            </a>-->
-<!--            <ul class="nav nav-treeview">-->
-<!--              <li class="nav-item">-->
-<!--                <a href="./index.html" class="nav-link active">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v1</p>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="nav-item">-->
-<!--                <a href="./index2.html" class="nav-link">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v2</p>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="nav-item">-->
-<!--                <a href="./index3.html" class="nav-link">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v3</p>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--            </ul>-->
-<!--          </li>-->
-
-
           <li class="nav-item">
-            <a href="{% url 'ahc_super_client:broker_profile'%}" class="nav-link">
+            <a href="{% url 'ahc_broker:broker_profile'%}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Profile

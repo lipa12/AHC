@@ -33,13 +33,13 @@ def add_client(request):
 
 def client_list(request):
     user = request.user.username
-    client_list = User.objects.filter(super_client_username = user)
-    return render(request, 'ahc_app/pages/tables/client_list.html', {'client_list':client_list})
+    client_list = User.objects.filter(super_client_username=user)
+    return render(request, 'ahc_app/pages/tables/client_list.html', {'client_list': client_list})
 
 
 def trade(request):
     data = NiftyBanknifty.objects.all()
-    return render(request, 'ahc_app/pages/tables/trades.html',{'data': data})
+    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data})
 
 
 def client_profile(request):
@@ -48,6 +48,11 @@ def client_profile(request):
 
 def broker_profile(request):
     return render(request, 'ahc_app/pages/profile/broker_profile.html')
+
+
+def base_menu(request):
+    data = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/base.html', {'data':data})
 
 
 class SuperClientSignUpView(CreateView):
@@ -61,7 +66,7 @@ class SuperClientSignUpView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        #login(self.request, user)
+        # login(self.request, user)
         return redirect('home')
 
 
@@ -76,8 +81,9 @@ class AddNewClient(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        #login(self.request, user)
+        # login(self.request, user)
         return redirect('ahc_super_client:index')
+
 
 def nifty_banknifty(request):
     data = NiftyBanknifty.objects.all()

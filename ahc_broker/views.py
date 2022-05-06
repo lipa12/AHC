@@ -16,6 +16,11 @@ from ahc_app.models import User
 def index(request):
     return render(request, 'ahc_app/index4.html')
 
+
+def broker_profile(request):
+    return render(request, 'ahc_app/pages/profile/broker_profile.html')
+
+
 class BrokerSignUpView(CreateView):
     model = User
     form_class = BrokerSignUpForm

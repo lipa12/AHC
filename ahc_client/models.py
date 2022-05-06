@@ -13,8 +13,6 @@ class NiftyBanknifty(models.Model):
     lt = models.FloatField()
 
 
-
-
 class TradeStrategies(models.Model):
     strategies = models.IntegerField()
     symbol = models.IntegerField()
