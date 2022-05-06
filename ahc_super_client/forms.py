@@ -10,7 +10,9 @@ def test(request):
     username = str(user)
     return username
 
+
 class AddClientForm(UserCreationForm):
+    super_client_username = forms.CharField(max_length=50)
     username = forms.CharField(max_length=32, help_text='First name',
                                widget=forms.TextInput(attrs={'placeholder': 'username'}))
     first_name = forms.CharField(max_length=32, help_text='First name',
@@ -29,12 +31,12 @@ class AddClientForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = UserCreationForm.Meta.fields + ('first_name', 'last_name', 'email', 'mobile_number',)
+        fields = UserCreationForm.Meta.fields + ('first_name', 'last_name', 'email', 'mobile_number','super_client_username')
 
     def save(self, commit=True):
         user = super().save(commit=False)
         user.is_client = True
-        user.super_client_username = user.username
+        user.super_client_username =user.super_client_username
         if commit:
             user.save()
         return user
