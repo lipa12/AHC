@@ -43,3 +43,7 @@ def nifty_banknifty(request):
     data = NiftyBanknifty.objects.all()
     print(data)
     return render(request, 'ahc_app/pages/tables/trades.html', {'data': data})
+
+def client_profile(request):
+    return render(request, 'ahc_app/pages/profile/client_profile.html')
+
