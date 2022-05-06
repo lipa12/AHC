@@ -261,17 +261,18 @@
             </a>
 
           </li>
+          {% for data in data %}
             <li class="nav-item">
             <a href="{% url 'ahc_super_client:trade'%}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Trading Strategies
+                Trading Strategies {{data.strategies}}
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
 
           </li>
-
+          {% endfor %}
 
         </ul>
 
@@ -423,17 +424,18 @@
               </p>
             </a>
           </li>
+          {% for data in data %}
             <li class="nav-item">
             <a href="{% url 'ahc_client:trade_strategies'%}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Trading Strategies
+                Trading Strategies {{data.strategies}}
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
 
           </li>
-
+        {% endfor %}
 
         </ul>
 

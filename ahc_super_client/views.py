@@ -50,6 +50,11 @@ def broker_profile(request):
     return render(request, 'ahc_app/pages/profile/broker_profile.html')
 
 
+def base_menu(request):
+    data = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/base.html', {'data':data})
+
+
 class SuperClientSignUpView(CreateView):
     model = User
     form_class = SuperClientSignUpForm
