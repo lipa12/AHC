@@ -28,13 +28,15 @@ def test(request):
 
 
 def add_client(request):
-    return render(request, 'ahc_app/pages/forms/add_client.html')
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/forms/add_client.html', {'data': strategies_number})
 
 
 def client_list(request):
     user = request.user.username
     client_list = User.objects.filter(super_client_username=user)
-    return render(request, 'ahc_app/pages/tables/client_list.html', {'client_list': client_list})
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/tables/client_list.html', {'client_list': client_list, 'strategies_number': strategies_number})
 
 
 def trade(request):
@@ -43,16 +45,18 @@ def trade(request):
 
 
 def client_profile(request):
-    return render(request, 'ahc_app/pages/profile/client_profile.html')
+    data = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/profile/client_profile.html', {'data': data})
 
 
 def broker_profile(request):
     return render(request, 'ahc_app/pages/profile/broker_profile.html')
 
 
-def base_menu(request):
-    data = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/base.html', {'data':data})
+# def base_menu(request):
+#     data = TradeStrategies.objects.all()
+#     print(data)
+#     return render(request, 'ahc_app/base.html', {'data': data})
 
 
 class SuperClientSignUpView(CreateView):
