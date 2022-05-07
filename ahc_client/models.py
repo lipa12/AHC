@@ -14,7 +14,7 @@ class NiftyBanknifty(models.Model):
 
 
 class TradeStrategies(models.Model):
-    strategies = models.CharField(max_length=10)
+    strategies = models.IntegerField()
     symbol = models.IntegerField()
     expiry_date = models.DateTimeField()
     strike_price = models.FloatField()
@@ -49,5 +49,5 @@ class TradeStrategies(models.Model):
     entry_time = models.DateTimeField()
     exit_time = models.DateTimeField()
 
-    def __str__(self):
+    def __int__(self):
         return self.strategies
