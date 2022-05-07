@@ -15,6 +15,7 @@ class User(AbstractUser):
     start_date = models.DateTimeField(_("Start Date"), default=timezone.now)
     expiry_date = models.DateTimeField(_("Expiry Date"), default=timezone.now)
     super_client_username = models.CharField(max_length=100, blank=True)
+    mobile_number = models.IntegerField(blank=True,null=True)
 
 
 # import re

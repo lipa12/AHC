@@ -51,8 +51,9 @@ def trade(request, strategies):
 
 def super_client_profile(request):
     strategies_number = TradeStrategies.objects.all()
+    profile = User.objects.filter(username=request.user.username)
     return render(request, 'ahc_app/pages/profile/super_client_profile.html',
-                  {'strategies_number': strategies_number})
+                  {'strategies_number': strategies_number,'profile':profile})
 
 
 def super_client_profile_update(request):
