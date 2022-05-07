@@ -74,6 +74,7 @@
                 <table id="trade" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                    <th>Strategies</th>
                     <th>SYMBOL</th>
                     <th>Expiry Date</th>
                     <th>Strike price</th>
@@ -110,58 +111,44 @@
                   </tr>
                   </thead>
                   <tbody>
+                  {% for strategies_number in strategies_number %}
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                      <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>4</td>
-                    <td>4</td>
+                    <td>{{strategies_number.strategies}}</td>
+                    <td>{{strategies_number.symbol}}</td>
+                    <td>{{strategies_number.expiry_date}}</td>
+                    <td>{{strategies_number.strike_price}}</td>
+                    <td>{{strategies_number.ce_pe_fut}}</td>
+                    <td>{{strategies_number.mis_nrml}}</td>
+                    <td>{{strategies_number.buy_sell}}</td>
+                    <td>{{strategies_number.order_quantity}}</td>
+                    <td>{{strategies_number.partial_exit_quantity}}</td>
+                    <td>{{strategies_number.target}}</td>
+                    <td>{{strategies_number.buy_sell_spotprice}}</td>
+                    <td>{{strategies_number.stop_loss}}</td>
+                    <td>{{strategies_number.profit_trailing}}</td>
+                    <td>{{strategies_number.trailing_sl_points}}</td>
+                    <td>{{strategies_number.m_ma_mb}}</td>
+                    <td>{{strategies_number.current_sl_position}}</td>
+                    <td>{{strategies_number.trade_status}}</td>
+                    <td>{{strategies_number.executed_price}}</td>
+                    <td>{{strategies_number.live_ltp}}</td>
+                    <td>{{strategies_number.vwap}}</td>
+                    <td>{{strategies_number.mtm}}</td>
+                    <td>{{strategies_number.iv}}</td>
+                    <td>{{strategies_number.delta}}</td>
+                    <td>{{strategies_number.gamma}}</td>
+                    <td>{{strategies_number.rho}}</td>
+                    <td>{{strategies_number.theta}}</td>
+                    <td>{{strategies_number.vega}}</td>
+                    <td>{{strategies_number.volume}}</td>
+                    <td>{{strategies_number.lot_size}}</td>
+                    <td>{{strategies_number.capital_required_to_buy}}</td>
+                    <td>{{strategies_number.order_id}}</td>
+                    <td>{{strategies_number.current_profit_position}}</td>
+                    <td>{{strategies_number.entry_time}}</td>
+                    <td>{{strategies_number.exit_time}}</td>
                   </tr>
-
+                  {% endfor %}
                   </tfoot>
                 </table>
               </div>
