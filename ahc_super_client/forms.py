@@ -12,8 +12,9 @@ def test(request):
 
 
 class AddClientForm(UserCreationForm):
-    super_client_username = forms.CharField(max_length=50)
-    username = forms.CharField(max_length=32, help_text='First name',
+    super_client_username = forms.CharField(max_length=50, help_text='super client username',
+                               widget=forms.TextInput(attrs={'placeholder': 'super client username'}))
+    username = forms.CharField(max_length=32, help_text='username',
                                widget=forms.TextInput(attrs={'placeholder': 'username'}))
     first_name = forms.CharField(max_length=32, help_text='First name',
                                  widget=forms.TextInput(attrs={'placeholder': 'First Name'}))

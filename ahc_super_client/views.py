@@ -17,7 +17,7 @@ from ahc_client.models import NiftyBanknifty, TradeStrategies
 
 def index(request):
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/index.html',{'strategies_number': strategies_number})
+    return render(request, 'ahc_app/index.html', {'strategies_number': strategies_number})
 
 
 def test(request):
@@ -26,6 +26,7 @@ def test(request):
     print(username)
     # return render(request, 'ahc_app/pages/forms/add_client.html')
     return render(request, 'ahc_app/index.html')
+
 
 #
 # def add_client(request):
@@ -37,13 +38,14 @@ def client_list(request):
     user = request.user.username
     client_list = User.objects.filter(super_client_username=user)
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/tables/client_list.html', {'client_list': client_list, 'strategies_number': strategies_number})
+    return render(request, 'ahc_app/pages/tables/client_list.html',
+                  {'client_list': client_list, 'strategies_number': strategies_number})
 
 
 def trade(request):
     data = NiftyBanknifty.objects.all()
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data,'strategies_number':strategies_number})
+    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data, 'strategies_number': strategies_number})
 
 
 def client_profile(request):
@@ -53,13 +55,7 @@ def client_profile(request):
 
 def broker_profile(request):
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/profile/broker_profile.html',{'strategies_number': strategies_number})
-
-
-# def base_menu(request):
-#     data = TradeStrategies.objects.all()
-#     print(data)
-#     return render(request, 'ahc_app/base.html', {'data': data})
+    return render(request, 'ahc_app/pages/profile/broker_profile.html', {'strategies_number': strategies_number})
 
 
 class SuperClientSignUpView(CreateView):
@@ -95,4 +91,4 @@ class AddNewClient(CreateView):
 def nifty_banknifty(request):
     data = NiftyBanknifty.objects.all()
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data,'strategies_number': strategies_number})
+    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data, 'strategies_number': strategies_number})
