@@ -21,6 +21,10 @@ def broker_profile(request):
     return render(request, 'ahc_app/pages/profile/broker_profile.html')
 
 
+def broker_profile_update(request):
+    return render(request, 'ahc_app/pages/forms/broker_profile_update.html')
+
+
 class BrokerSignUpView(CreateView):
     model = User
     form_class = BrokerSignUpForm

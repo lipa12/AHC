@@ -34,9 +34,10 @@ class ClientSignUpView(CreateView):
         return redirect('loginuser')
 
 
-def trade_strategies(request):
+def trade_strategies(request,strategies):
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/tables/trades.html', {'strategies_number': strategies_number})
+    strategies_data = TradeStrategies.objects.filter(strategies=strategies)
+    return render(request, 'ahc_app/pages/tables/trades.html', {'strategies_number': strategies_number,'strategies_data':strategies_data})
 
 
 def nifty_banknifty(request):
