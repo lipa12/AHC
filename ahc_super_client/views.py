@@ -43,7 +43,7 @@ def client_list(request):
 
 def trade(request):
     data = NiftyBanknifty.objects.all()
-    strategies_number = TradeStrategies.objects.all()
+    strategies_number = TradeStrategies.objects.filter(strategies="1")
     return render(request, 'ahc_app/pages/tables/trades.html', {'data': data, 'strategies_number': strategies_number})
 
 
