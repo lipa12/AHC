@@ -9,6 +9,17 @@ from django.contrib.auth.decorators import login_required
 from ahc_app.models import User
 
 
+# from django.shortcuts import render, redirect, get_object_or_404
+# from .models import *
+# from django.contrib.auth import authenticate, login, logout
+# from django.contrib import auth
+# from django.contrib import messages
+# from django.core.exceptions import ObjectDoesNotExist,FieldDoesNotExist
+#
+#
+# # Create your views here.
+#
+
 class SignUpView(TemplateView):
     template_name = 'registration/signup.html'
 
@@ -22,22 +33,12 @@ def home(request):
         elif request.user.is_client:
             return redirect('ahc_client/')
         elif request.user.is_broker:
-            return redirect('ahc_app:dashboard3')
+            return redirect('ahc_broker/')
         else:
             return redirect('loginuser')
     return render(request, 'ahc_app/index4.html')
 
 
-# from django.shortcuts import render, redirect, get_object_or_404
-# from .models import *
-# from django.contrib.auth import authenticate, login, logout
-# from django.contrib import auth
-# from django.contrib import messages
-# from django.core.exceptions import ObjectDoesNotExist,FieldDoesNotExist
-#
-#
-# # Create your views here.
-#
 def index(request):
     return render(request, 'ahc_app/index.html')
 
@@ -129,7 +130,7 @@ def loginuser(request):
                 elif request.user.is_client:
                     return redirect('ahc_client:index')
                 elif request.user.is_broker:
-                    return redirect('ahc_app:dashboard3')
+                    return redirect('ahc_broker:index')
                 else:
                     return redirect('login')
             return redirect('ahc_app:dashboard')
@@ -139,6 +140,3 @@ def logoutuser(request):
     if request.method == 'POST':
         logout(request)
         return redirect('loginuser')
-
-
-

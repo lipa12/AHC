@@ -26,8 +26,9 @@ from ahc_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ahc_app.urls')),
-    path('super_client/', include(('ahc_super_client.urls', 'ahc_super_client'), namespace='ahc_super_client')),
-    path('client/', include(('ahc_client.urls', 'ahc_client'), namespace='ahc_client')),
+    path('ahc_super_client/', include(('ahc_super_client.urls', 'ahc_super_client'), namespace='ahc_super_client')),
+    path('ahc_client/', include(('ahc_client.urls', 'ahc_client'), namespace='ahc_client')),
+    path('ahc_broker/', include(('ahc_broker.urls', 'ahc_broker'), namespace='ahc_broker')),
     path('ahc_admin/', include(('ahc_admin.urls', 'ahc_admin'), namespace='ahc_admin')),
     # path('accounts/', include('django.contrib.auth.urls')),
     path('login/', views.loginuser, name='loginuser'),

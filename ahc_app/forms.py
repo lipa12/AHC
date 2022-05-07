@@ -57,6 +57,7 @@ class SuperClientSignUpForm(UserCreationForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.is_super_client = True
+        user.mobile_number = user.mobile_number
         if commit:
             user.save()
         return user

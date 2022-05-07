@@ -14,7 +14,7 @@ from ahc_app.models import User
 
 
 def index(request):
-    return render(request, 'ahc_app/index4.html')
+    return render(request, 'ahc_app/index3.html')
 
 
 def broker_profile(request):
@@ -36,5 +36,5 @@ class BrokerSignUpView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        login(self.request, user)
-        return redirect('students:quiz_list')
+        #login(self.request, user)
+        return redirect('ahc_brker:index')
