@@ -48,3 +48,8 @@ def nifty_banknifty(request):
 def client_profile(request):
     strategies_number = TradeStrategies.objects.all()
     return render(request, 'ahc_app/pages/profile/client_profile.html', {'strategies_number': strategies_number})
+
+
+def client_profile_update(request):
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/forms/profile_update.html', {'strategies_number': strategies_number})
