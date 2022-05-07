@@ -16,7 +16,8 @@ from ahc_client.models import NiftyBanknifty, TradeStrategies
 
 
 def index(request):
-    return render(request, 'ahc_app/index.html')
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/index.html',{'strategies_number': strategies_number})
 
 
 def test(request):
@@ -26,10 +27,10 @@ def test(request):
     # return render(request, 'ahc_app/pages/forms/add_client.html')
     return render(request, 'ahc_app/index.html')
 
-
-def add_client(request):
-    strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/forms/add_client.html', {'data': strategies_number})
+#
+# def add_client(request):
+#     strategies_number = TradeStrategies.objects.all()
+#     return render(request, 'ahc_app/pages/forms/add_client.html', {'strategies_number': strategies_number})
 
 
 def client_list(request):
@@ -41,16 +42,18 @@ def client_list(request):
 
 def trade(request):
     data = NiftyBanknifty.objects.all()
-    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data})
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data,'strategies_number':strategies_number})
 
 
 def client_profile(request):
-    data = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/profile/client_profile.html', {'data': data})
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/profile/client_profile.html', {'strategies_number': strategies_number})
 
 
 def broker_profile(request):
-    return render(request, 'ahc_app/pages/profile/broker_profile.html')
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/profile/broker_profile.html',{'strategies_number': strategies_number})
 
 
 # def base_menu(request):
@@ -91,4 +94,5 @@ class AddNewClient(CreateView):
 
 def nifty_banknifty(request):
     data = NiftyBanknifty.objects.all()
-    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data})
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data,'strategies_number': strategies_number})
