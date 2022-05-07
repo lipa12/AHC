@@ -28,10 +28,9 @@ def test(request):
     return render(request, 'ahc_app/index.html')
 
 
-#
-# def add_client(request):
-#     strategies_number = TradeStrategies.objects.all()
-#     return render(request, 'ahc_app/pages/forms/add_client.html', {'strategies_number': strategies_number})
+def add_client(request):
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/forms/add_client.html', {'strategies_number': strategies_number})
 
 
 def client_list(request):

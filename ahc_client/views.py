@@ -15,7 +15,8 @@ from .models import TradeStrategies, NiftyBanknifty
 
 
 def index(request):
-    return render(request, 'ahc_app/index4.html')
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/index4.html', {'strategies_number': strategies_number})
 
 
 class ClientSignUpView(CreateView):
@@ -34,16 +35,16 @@ class ClientSignUpView(CreateView):
 
 
 def trade_strategies(request):
-    trade = TradeStrategies.objects.all()
-    print(trade)
-    return render(request, 'ahc_app/pages/tables/trades.html', {'trade': trade})
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/tables/trades.html', {'strategies_number': strategies_number})
 
 
 def nifty_banknifty(request):
     data = NiftyBanknifty.objects.all()
-    print(data)
-    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data})
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data, 'strategies_number': strategies_number})
+
 
 def client_profile(request):
-    return render(request, 'ahc_app/pages/profile/client_profile.html')
-
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/profile/client_profile.html', {'strategies_number': strategies_number})
