@@ -45,7 +45,20 @@ def trade(request, strategies):
     data = NiftyBanknifty.objects.all()
     strategies_number = TradeStrategies.objects.all()
     strategies_data = TradeStrategies.objects.filter(strategies=strategies)
-    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data, 'strategies_number': strategies_number,'strategies_data':strategies_data})
+    return render(request, 'ahc_app/pages/tables/trades.html',
+                  {'data': data, 'strategies_number': strategies_number, 'strategies_data': strategies_data})
+
+
+def super_client_profile(request):
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/profile/super_client_profile.html',
+                  {'strategies_number': strategies_number})
+
+
+def super_client_profile_update(request):
+    strategies_number = TradeStrategies.objects.all()
+    return render(request, 'ahc_app/pages/forms/super_client_profile_update.html',
+                  {'strategies_number': strategies_number})
 
 
 def client_profile(request):

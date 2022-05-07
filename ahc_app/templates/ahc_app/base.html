@@ -224,6 +224,15 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
+            <a href="{% url 'ahc_super_client:super_client_profile' %}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Profile
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{% url 'ahc_super_client:add_client_form' %}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
@@ -232,6 +241,7 @@
               </p>
             </a>
           </li>
+
           <li class="nav-item">
             <a href="{% url 'ahc_super_client:client_list'%}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
