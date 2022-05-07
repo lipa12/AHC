@@ -20,7 +20,7 @@ def home(request):
         elif request.user.is_ahc_admin:
             return redirect('ahc_admin/')
         elif request.user.is_client:
-            return redirect('ahc_app:dashboard2')
+            return redirect('ahc_client/')
         elif request.user.is_broker:
             return redirect('ahc_app:dashboard3')
         else:

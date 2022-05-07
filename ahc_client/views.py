@@ -16,7 +16,7 @@ from .models import TradeStrategies, NiftyBanknifty
 
 def index(request):
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/index4.html', {'strategies_number': strategies_number})
+    return render(request, 'ahc_app/index2.html', {'strategies_number': strategies_number})
 
 
 class ClientSignUpView(CreateView):
