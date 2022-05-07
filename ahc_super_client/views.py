@@ -43,8 +43,9 @@ def client_list(request):
 
 def trade(request, strategies):
     data = NiftyBanknifty.objects.all()
-    strategies_number = TradeStrategies.objects.filter(strategies=strategies)
-    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data, 'strategies_number': strategies_number})
+    strategies_number = TradeStrategies.objects.all()
+    strategies_data = TradeStrategies.objects.filter(strategies=strategies)
+    return render(request, 'ahc_app/pages/tables/trades.html', {'data': data, 'strategies_number': strategies_number,'strategies_data':strategies_data})
 
 
 def client_profile(request):
