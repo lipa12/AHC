@@ -38,6 +38,7 @@ class AddClientForm(UserCreationForm):
         user = super().save(commit=False)
         user.is_client = True
         user.super_client_username =user.super_client_username
+        user.mobile_number = user.mobile_number
         if commit:
             user.save()
         return user
