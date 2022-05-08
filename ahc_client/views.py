@@ -48,7 +48,8 @@ def nifty_banknifty(request):
 
 def client_profile(request):
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/profile/client_profile.html', {'strategies_number': strategies_number})
+    profile = User.objects.filter(username = request.user.username)
+    return render(request, 'ahc_app/pages/profile/client_profile.html', {'strategies_number': strategies_number, 'profile':profile})
 
 
 def client_profile_update(request):

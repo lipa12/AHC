@@ -18,7 +18,8 @@ def index(request):
 
 
 def broker_profile(request):
-    return render(request, 'ahc_app/pages/profile/broker_profile.html')
+    profile = User.objects.filter(username=request.user.username)
+    return render(request, 'ahc_app/pages/profile/broker_profile.html', {'profile': profile})
 
 
 def broker_profile_update(request):

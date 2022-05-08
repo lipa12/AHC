@@ -28,6 +28,7 @@ class ClientSignUpForm(UserCreationForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.is_client = True
+        user.mobile_number = user.mobile_number
         if commit:
             user.save()
         return user
@@ -87,6 +88,7 @@ class AdminSignUpForm(UserCreationForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.is_ahc_admin = True
+        user.mobile_number = user.mobile_number
         if commit:
             user.save()
         return user
@@ -116,6 +118,7 @@ class BrokerSignUpForm(UserCreationForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.is_broker = True
+        user.mobile_number = user.mobile_number
         if commit:
             user.save()
         return user
@@ -145,6 +148,7 @@ class AddClientForm(UserCreationForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.is_client = True
+        user.mobile_number = user.mobile_number
         if commit:
             user.save()
         return user
