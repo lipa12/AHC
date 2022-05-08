@@ -53,14 +53,24 @@ def super_client_profile(request):
     strategies_number = TradeStrategies.objects.all()
     profile = User.objects.filter(username=request.user.username)
     return render(request, 'ahc_app/pages/profile/super_client_profile.html',
-                  {'strategies_number': strategies_number, 'profile': profile})
+                  {'strategies_number': strategies_number,'profile':profile})
 
 
 def super_client_profile_update(request):
     strategies_number = TradeStrategies.objects.all()
-    profile = User.objects.filter(username=request.user.username)
+    if request.method == 'POST':
+        user = User.objects.get(username=request.user.username)
+        user.first_name = request.POST.get('firstname')
+        user.last_name = request.POST.get('lastname')
+        user.email = request.POST.get('email')
+        user.mobile_number = request.POST.get('mobile_number')
+
+        user.save()
+
+        return redirect('ahc_super_client:index')
+
     return render(request, 'ahc_app/pages/forms/super_client_profile_update.html',
-                  {'strategies_number': strategies_number, 'profile': profile})
+                  {'strategies_number': strategies_number})
 
 
 def client_profile(request):
