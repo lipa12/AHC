@@ -35,12 +35,12 @@
               <!-- /.card-header -->
               <!-- form start -->
               {% for profile in profile %}
-              <form id="quickForm" method = "POST" action="{% url 'ahc_super_client:super_client_profile_update' %}">
+              <form id="quickForm" method = "POST" action="{% url 'ahc_admin:admin_profile_update' %}">
                 {% csrf_token %}
                 <div class="card-body">
                   <div class="form-group">
                     <label for="username">User Name</label>
-                    <input type="text" name="username" class="form-control" id="username" placeholder="{{profile.username}}" disabled>
+                    <input type="text" name="username" class="form-control" id="username" value="{{profile.username}}" placeholder="{{profile.username}}" disabled>
                   </div>
                   <div class="form-group">
                     <label for="firstname">First Name</label>

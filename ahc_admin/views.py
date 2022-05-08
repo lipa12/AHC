@@ -21,8 +21,22 @@ def index(request):
 
 def admin_profile(request):
     profile = User.objects.filter(username=request.user.username)
-    return render(request, 'ahc_app/pages/profile/admin_profile.html', {'profile':profile})
+    return render(request, 'ahc_app/pages/profile/admin_profile.html', {'profile': profile})
 
+
+def admin_profile_update(request):
+    profile = User.objects.filter(username=request.user.username)
+    if request.method == "POST":
+        user = User.objects.get(username=request.user.username)
+        user.first_name = request.POST.get('firstname')
+        user.last_name = request.POST.get('lastname')
+        user.email = request.POST.get('email')
+        user.mobile_number = request.POST.get('mobile_number')
+
+        user.save()
+
+        return redirect('ahc_admin:index')
+    return render(request, 'ahc_app/pages/forms/admin_profile_update.html', {'profile': profile})
 
 def add_client(request):
     user = request.user.username

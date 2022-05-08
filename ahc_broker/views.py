@@ -23,7 +23,17 @@ def broker_profile(request):
 
 
 def broker_profile_update(request):
-    return render(request, 'ahc_app/pages/forms/broker_profile_update.html')
+    profile = User.objects.filter(username=request.user.username)
+    if request.method == 'POST':
+        user = User.objects.get(username=request.user.username)
+        user.first_name = request.POST.get('firstname')
+        user.last_name = request.POST.get('lastname')
+        user.email = request.POST.get('email')
+        user.mobile_number = request.POST.get('mobile_number')
+
+        user.save()
+        return redirect('ahc_broker:index')
+    return render(request, 'ahc_app/pages/forms/broker_profile_update.html', {'profile':profile})
 
 
 class BrokerSignUpView(CreateView):
@@ -37,5 +47,5 @@ class BrokerSignUpView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        #login(self.request, user)
+        # login(self.request, user)
         return redirect('ahc_brker:index')

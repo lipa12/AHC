@@ -13,4 +13,5 @@ urlpatterns = [
     path('profile/', views.admin_profile, name = 'admin_profile'),
     path('client_profile/', views.client_profile, name='client_profile'),
     path('broker_profile/', views.broker_profile, name='broker_profile'),
+    path('profile_update/', views.admin_profile_update, name='admin_profile_update'),
 ]

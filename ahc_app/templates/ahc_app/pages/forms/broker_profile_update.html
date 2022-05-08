@@ -33,37 +33,29 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm">
+              {% for profile in profile %}
+              <form id="quickForm" method="post" action="{% url 'ahc_broker:broker_profile_update' %}">
+                {% csrf_token %}
                 <div class="card-body">
                   <div class="form-group">
                     <label for="username">User Name</label>
-                    <input type="text" name="username" class="form-control" id="username" placeholder="Username">
+                    <input type="text" name="username" class="form-control" id="username" placeholder="{{profile.username}}" disabled>
                   </div>
                   <div class="form-group">
                     <label for="firstname">First Name</label>
-                    <input type="text" name="first" class="form-control" id="firstname" placeholder="First Name">
+                    <input type="text" name="firstname" class="form-control" id="firstname" value="{{profile.first_name}}" placeholder="{{profile.first_name}}">
                   </div>
                   <div class="form-group">
                     <label for="lastname">Last Name</label>
-                    <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Last name">
+                    <input type="text" name="lastname" class="form-control" id="lastname" value="{{profile.last_name}}" placeholder="{{profile.last_name}}">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email Address">
+                    <label for="email">Email address</label>
+                    <input type="email" name="email" class="form-control" id="email" value="{{profile.email}}" placeholder="{{profile.email}}">
                   </div>
                   <div class="form-group">
-                    <label for="mobile">Mobile Number</label>
-                    <input type="number" name="mobile" class="form-control" id="mobile" placeholder="Mobile Number">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                  </div>
-                  <div class="form-group mb-0">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
-                      <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
-                    </div>
+                    <label for="mobile_number">Mobile Number</label>
+                    <input type="number" name="mobile_number" class="form-control" id="mobile_number" value="{{profile.mobile_number}}" placeholder="{{profile.mobile_number}}">
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -71,6 +63,7 @@
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
+              {% endfor %}
             </div>
             <!-- /.card -->
             </div>

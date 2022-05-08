@@ -54,4 +54,15 @@ def client_profile(request):
 
 def client_profile_update(request):
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/forms/profile_update.html', {'strategies_number': strategies_number})
+    profile = User.objects.filter(username=request.user.username)
+    if request.method == 'POST':
+        user = User.objects.get(username=request.user.username)
+        user.first_name = request.POST.get('firstname')
+        user.last_name = request.POST.get('lastname')
+        user.email = request.POST.get('email')
+        user.mobile_number = request.POST.get('mobile_number')
+
+        user.save()
+
+        return redirect('ahc_client:index')
+    return render(request, 'ahc_app/pages/forms/profile_update.html', {'strategies_number': strategies_number, 'profile':profile})

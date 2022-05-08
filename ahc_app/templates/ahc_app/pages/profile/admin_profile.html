@@ -33,7 +33,7 @@
                        src="{% static "dist/img/user4-128x128.jpg"%}"
                        alt="User profile picture">
                 </div>
-      {% for profile in profile %}
+                  {% for profile in profile %}
                 <h3 class="profile-username text-center">{{profile.username}}</h3>
 
 <!--                <p class="text-muted text-center">Software Engineer</p>-->
@@ -54,7 +54,7 @@
                   </li>
                 </ul>
 
-                <a href="{% url 'ahc_client:client_profile_update' %}" class="btn btn-primary btn-block"><b>Update Profile</b></a>
+                <a href="{% url 'ahc_admin:admin_profile_update' %}" class="btn btn-primary btn-block"><b>Update Profile</b></a>
                 {% endfor %}
               </div>
               <!-- /.card-body -->
