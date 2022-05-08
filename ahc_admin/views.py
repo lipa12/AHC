@@ -19,6 +19,11 @@ def index(request):
     return render(request, 'ahc_app/ahc_admin.html')
 
 
+def admin_profile(request):
+    profile = User.objects.filter(username=request.user.username)
+    return render(request, 'ahc_app/pages/profile/admin_profile.html', {'profile':profile})
+
+
 def add_client(request):
     user = request.user.username
     return render(request, 'ahc_app/pages/forms/add_client.html')
