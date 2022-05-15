@@ -2,15 +2,15 @@ from django.db import models
 
 
 class NiftyBanknifty(models.Model):
-    nifty_spot = models.FloatField()
-    nifty_future = models.FloatField()
-    bank_nifty_spot = models.FloatField()
-    bank_nifty_future = models.FloatField()
-    profit = models.FloatField()
-    loss = models.FloatField()
-    mtm = models.FloatField()
-    vt = models.FloatField()
-    lt = models.FloatField()
+    nifty_spot = models.FloatField(null=True)
+    nifty_future = models.FloatField(null=True)
+    bank_nifty_spot = models.FloatField(null=True)
+    bank_nifty_future = models.FloatField(null=True)
+    profit = models.FloatField(null=True)
+    loss = models.FloatField(null=True)
+    mtm = models.FloatField(null=True)
+    vt = models.FloatField(null=True)
+    lt = models.FloatField(null=True)
 
 
 class TradeStrategies(models.Model):
