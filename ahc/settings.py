@@ -90,12 +90,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ahc_db',
         'USER': 'root',
-        'PASSWORD': 'lipa@123',
+        'PASSWORD': 'alok@143',
         'HOST': '127.0.0.1',
         'PORT':'3306'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
