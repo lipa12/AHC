@@ -11,6 +11,7 @@ urlpatterns = [
     path('add_client/', AddNewClient.as_view(), name='add_client_form'),
     path('client_list/', views.client_list, name='client_list'),
     path('trade/<int:strategies>/', views.trade, name='trade'),
+    path('trade_data/', views.trade_data, name='trade_data'),
     path('client_profile/', views.client_profile, name='client_profile'),
     path('broker_profile/', views.broker_profile, name='broker_profile'),
 ]

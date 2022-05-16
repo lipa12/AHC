@@ -46,20 +46,8 @@
                     <th>LT</th>
                   </tr>
                   </thead>
-                  <tbody>
-                  {% for data in data %}
-                  <tr>
-                    <td>{{data.nifty_spot}}</td>
-                    <td>{{data.nifty_future}}</td>
-                    <td>{{data.bank_nifty_spot}}</td>
-                    <td>{{data.bank_nifty_future}}</td>
-                    <td>{{data.mtm}}</td>
-                    <td>{{data.profit}}</td>
-                    <td>{{data.loss}}</td>
-                    <td>{{data.vt}}</td>
-                    <td>{{data.lt}}</td>
-                  </tr>
-                  {% endfor %}
+                  <tbody id = "data_update">
+
                   </tbody>
                   <tfoot>
                   </tfoot>
@@ -162,4 +150,5 @@
       <!-- /.container-fluid -->
     </section>
   </div>
+
 {% endblock %}
