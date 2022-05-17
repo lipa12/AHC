@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth import login
@@ -41,6 +42,12 @@ def trade_strategies(request, strategies):
     strategies_data = TradeStrategies.objects.filter(strategies=strategies)
     return render(request, 'ahc_app/pages/tables/trades.html',
                   {'strategies_number': strategies_number, 'strategies_data': strategies_data})
+
+
+@login_required(login_url="loginuser")
+def trade_data(request):
+    data = NiftyBanknifty.objects.filter()[1:]
+    return JsonResponse({'stock_data': list(data.values())})
 
 
 @login_required(login_url="loginuser")

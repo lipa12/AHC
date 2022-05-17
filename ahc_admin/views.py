@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth import login
@@ -10,6 +11,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView
 from ahc_app.decorators import broker_required
 from ahc_app.forms import AdminSignUpForm
+from ahc_client.models import NiftyBanknifty
 from ahc_super_client.forms import AddClientForm
 from ahc_app.models import User
 
@@ -40,6 +42,12 @@ def admin_profile_update(request):
 
         return redirect('ahc_admin:index')
     return render(request, 'ahc_app/pages/forms/admin_profile_update.html', {'profile': profile})
+
+
+@login_required(login_url="loginuser")
+def trade_data(request):
+    data = NiftyBanknifty.objects.filter()[1:]
+    return JsonResponse({'stock_data': list(data.values())})
 
 
 @login_required(login_url="loginuser")
