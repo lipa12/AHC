@@ -16,11 +16,13 @@ from ahc_app.models import User
 from ahc_client.models import NiftyBanknifty, TradeStrategies
 
 
+@login_required(login_url="loginuser")
 def index(request):
     strategies_number = TradeStrategies.objects.all()
     return render(request, 'ahc_app/index.html', {'strategies_number': strategies_number})
 
 
+@login_required(login_url="loginuser")
 def test(request):
     user = request.user.username
     username = str(user)
@@ -29,11 +31,13 @@ def test(request):
     return render(request, 'ahc_app/index.html')
 
 
+@login_required(login_url="loginuser")
 def add_client(request):
     strategies_number = TradeStrategies.objects.all()
     return render(request, 'ahc_app/pages/forms/add_client.html', {'strategies_number': strategies_number})
 
 
+@login_required(login_url="loginuser")
 def client_list(request):
     user = request.user.username
     client_list = User.objects.filter(super_client_username=user)
@@ -42,28 +46,31 @@ def client_list(request):
                   {'client_list': client_list, 'strategies_number': strategies_number})
 
 
+@login_required(login_url="loginuser")
 def trade(request, strategies):
     data = NiftyBanknifty.objects.filter()[1:]
     strategies_number = TradeStrategies.objects.all()
     strategies_data = TradeStrategies.objects.filter(strategies=strategies)
     return render(request, 'ahc_app/pages/tables/trades.html',
-                  {'stock_data': list(data.values()), 'strategies_number': strategies_number, 'strategies_data': strategies_data})
+                  {'stock_data': list(data.values()), 'strategies_number': strategies_number,
+                   'strategies_data': strategies_data})
 
 
+@login_required(login_url="loginuser")
 def trade_data(request):
     data = NiftyBanknifty.objects.filter()[1:]
-    strategies_number = TradeStrategies.objects.all()
-    #strategies_data = TradeStrategies.objects.filter(strategies=strategies)
     return JsonResponse({'stock_data': list(data.values())})
 
 
+@login_required(login_url="loginuser")
 def super_client_profile(request):
     strategies_number = TradeStrategies.objects.all()
     profile = User.objects.filter(username=request.user.username)
     return render(request, 'ahc_app/pages/profile/super_client_profile.html',
-                  {'strategies_number': strategies_number,'profile':profile})
+                  {'strategies_number': strategies_number, 'profile': profile})
 
 
+@login_required(login_url="loginuser")
 def super_client_profile_update(request):
     strategies_number = TradeStrategies.objects.all()
     profile = User.objects.filter(username=request.user.username)
@@ -79,14 +86,16 @@ def super_client_profile_update(request):
         return redirect('ahc_super_client:index')
 
     return render(request, 'ahc_app/pages/forms/super_client_profile_update.html',
-                  {'strategies_number': strategies_number,'profile':profile})
+                  {'strategies_number': strategies_number, 'profile': profile})
 
 
+@login_required(login_url="loginuser")
 def client_profile(request):
     strategies_number = TradeStrategies.objects.all()
     return render(request, 'ahc_app/pages/profile/client_profile.html', {'strategies_number': strategies_number})
 
 
+@login_required(login_url="loginuser")
 def broker_profile(request):
     strategies_number = TradeStrategies.objects.all()
     return render(request, 'ahc_app/pages/profile/broker_profile.html', {'strategies_number': strategies_number})
@@ -122,6 +131,7 @@ class AddNewClient(CreateView):
         return redirect('ahc_super_client:index')
 
 
+@login_required(login_url="loginuser")
 def nifty_banknifty(request):
     data = NiftyBanknifty.objects.all()
     strategies_number = TradeStrategies.objects.all()

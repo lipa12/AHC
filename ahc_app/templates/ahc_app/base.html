@@ -606,12 +606,12 @@
                   type:'Get',
                   url:"{% url 'ahc_super_client:trade_data'  %}",
                   success:function(response) {
-                    $("#display").empty();
+                    $("#data_update").empty();
                     for(var key in response.stock_data)
                     {
                       var temp="<tr><th scope='row'>"+response.stock_data[key].nifty_spot+"</th><td>"+response.stock_data[key].nifty_future+"</td><td>"+response.stock_data[key].bank_nifty_spot+"</td><td>"+response.stock_data[key].bank_nifty_future+"</td><td>"+response.stock_data[key].profit+"</td><td>"+response.stock_data[key].loss+"</td><td>"+response.stock_data[key].mtm+"</td><td>"+response.stock_data[key].vt+"</td><td>"+response.stock_data[key].lt+"</td></tr>"
                       console.log(temp);
-                        $("#data_update").append(temp);
+                        $("#data_update").empty().append(temp);
                     }
                   },
                   error:function(response){
