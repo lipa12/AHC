@@ -14,6 +14,7 @@ from ahc_app.models import User
 from .models import TradeStrategies, NiftyBanknifty
 
 
+@login_required(login_url="loginuser")
 def index(request):
     strategies_number = TradeStrategies.objects.all()
     return render(request, 'ahc_app/index2.html', {'strategies_number': strategies_number})
@@ -30,28 +31,34 @@ class ClientSignUpView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        #login(self.request, user)
+        # login(self.request, user)
         return redirect('loginuser')
 
 
-def trade_strategies(request,strategies):
+@login_required(login_url="loginuser")
+def trade_strategies(request, strategies):
     strategies_number = TradeStrategies.objects.all()
     strategies_data = TradeStrategies.objects.filter(strategies=strategies)
-    return render(request, 'ahc_app/pages/tables/trades.html', {'strategies_number': strategies_number,'strategies_data':strategies_data})
+    return render(request, 'ahc_app/pages/tables/trades.html',
+                  {'strategies_number': strategies_number, 'strategies_data': strategies_data})
 
 
+@login_required(login_url="loginuser")
 def nifty_banknifty(request):
     data = NiftyBanknifty.objects.all()
     strategies_number = TradeStrategies.objects.all()
     return render(request, 'ahc_app/pages/tables/trades.html', {'data': data, 'strategies_number': strategies_number})
 
 
+@login_required(login_url="loginuser")
 def client_profile(request):
     strategies_number = TradeStrategies.objects.all()
-    profile = User.objects.filter(username = request.user.username)
-    return render(request, 'ahc_app/pages/profile/client_profile.html', {'strategies_number': strategies_number, 'profile':profile})
+    profile = User.objects.filter(username=request.user.username)
+    return render(request, 'ahc_app/pages/profile/client_profile.html',
+                  {'strategies_number': strategies_number, 'profile': profile})
 
 
+@login_required(login_url="loginuser")
 def client_profile_update(request):
     strategies_number = TradeStrategies.objects.all()
     profile = User.objects.filter(username=request.user.username)
@@ -65,4 +72,5 @@ def client_profile_update(request):
         user.save()
 
         return redirect('ahc_client:index')
-    return render(request, 'ahc_app/pages/forms/profile_update.html', {'strategies_number': strategies_number, 'profile':profile})
+    return render(request, 'ahc_app/pages/forms/profile_update.html',
+                  {'strategies_number': strategies_number, 'profile': profile})

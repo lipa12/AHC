@@ -14,14 +14,18 @@ from ahc_app.models import User
 from ahc_broker.models import BrokerDetails
 
 
+@login_required(login_url="loginuser")
 def index(request):
     return render(request, 'ahc_app/index3.html')
 
 
+@login_required(login_url="loginuser")
 def broker_profile(request):
     profile = User.objects.filter(username=request.user.username)
     return render(request, 'ahc_app/pages/profile/broker_profile.html', {'profile': profile})
 
+
+@login_required(login_url="loginuser")
 def broker_profile_update(request):
     profile = User.objects.filter(username=request.user.username)
     if request.method == 'POST':
@@ -34,7 +38,7 @@ def broker_profile_update(request):
         user.save()
         return redirect('ahc_broker:index')
     elif request.method == 'POST':
-        broker = BrokerDetails.objects.get(username = request.user.username)
+        broker = BrokerDetails.objects.get(username=request.user.username)
         if broker:
             broker.login_id = request.POST.get('loginid')
             broker.password = request.POST.get('password')
@@ -56,8 +60,7 @@ def broker_profile_update(request):
 
             return redirect('ahc_broker:index')
 
-
-    return render(request, 'ahc_app/pages/forms/broker_profile_update.html', {'profile':profile})
+    return render(request, 'ahc_app/pages/forms/broker_profile_update.html', {'profile': profile})
 
 
 class BrokerSignUpView(CreateView):

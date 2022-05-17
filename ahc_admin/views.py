@@ -14,16 +14,19 @@ from ahc_super_client.forms import AddClientForm
 from ahc_app.models import User
 
 
+@login_required(login_url="loginuser")
 def index(request):
     # return render(request, 'ahc_app/pages/forms/add_client.html')
     return render(request, 'ahc_app/ahc_admin.html')
 
 
+@login_required(login_url="loginuser")
 def admin_profile(request):
     profile = User.objects.filter(username=request.user.username)
     return render(request, 'ahc_app/pages/profile/admin_profile.html', {'profile': profile})
 
 
+@login_required(login_url="loginuser")
 def admin_profile_update(request):
     profile = User.objects.filter(username=request.user.username)
     if request.method == "POST":
@@ -38,29 +41,36 @@ def admin_profile_update(request):
         return redirect('ahc_admin:index')
     return render(request, 'ahc_app/pages/forms/admin_profile_update.html', {'profile': profile})
 
+
+@login_required(login_url="loginuser")
 def add_client(request):
     user = request.user.username
     return render(request, 'ahc_app/pages/forms/add_client.html')
 
 
+@login_required(login_url="loginuser")
 def client_list(request):
     client_list = User.objects.filter(is_client=True)
     return render(request, 'ahc_app/pages/tables/admin_client_list.html', {'client_list': client_list})
 
 
+@login_required(login_url="loginuser")
 def master_client_list(request):
     master_client_list = User.objects.filter(is_super_client=True)
     return render(request, 'ahc_app/pages/tables/master_client_list.html', {'master_client_list': master_client_list})
 
 
+@login_required(login_url="loginuser")
 def trade(request):
     return render(request, 'ahc_app/pages/tables/trades.html')
 
 
+@login_required(login_url="loginuser")
 def client_profile(request):
     return render(request, 'ahc_app/pages/profile/client_profile.html')
 
 
+@login_required(login_url="loginuser")
 def broker_profile(request):
     return render(request, 'ahc_app/pages/profile/broker_profile.html')
 
