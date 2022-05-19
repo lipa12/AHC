@@ -1,10 +1,6 @@
-#asgiref==3.5.0
-bcrypt==3.2.0
-cffi==1.15.0
+asgiref==3.5.1
 Django==4.0.4
 django-crispy-forms==1.14.0
-Pillow==9.1.0
-pycparser==2.21
-six==1.16.0
+mysqlclient==2.1.0
 sqlparse==0.4.2
 tzdata==2022.1
