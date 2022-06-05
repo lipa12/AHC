@@ -132,7 +132,7 @@ def loginuser(request):
                 elif request.user.is_broker:
                     return redirect('ahc_broker:index')
                 else:
-                    return redirect('login')
+                    return redirect('loginuser')
             return redirect('ahc_app:dashboard')
 
 

@@ -74,8 +74,9 @@ def trade(request):
 
 
 @login_required(login_url="loginuser")
-def client_profile(request):
-    return render(request, 'ahc_app/pages/profile/client_profile.html')
+def client_profile(request,profile_id):
+    profile = User.objects.filter(username=profile_id)
+    return render(request, 'ahc_app/pages/profile/client_profile.html',{'profile':profile})
 
 
 @login_required(login_url="loginuser")

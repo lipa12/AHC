@@ -40,7 +40,7 @@
                   <tbody>
                   {% for client_list in client_list %}
                   <tr>
-                    <td>{{client_list.username}}</td>
+                      <td><a href="{% url 'ahc_admin:client_profile' client_list.username %}">{{client_list.username}}</a></td>
                     <td>{{client_list.expiry_date}}</td>
                   </tr>
                 {% endfor %}
