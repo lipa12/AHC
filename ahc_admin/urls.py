@@ -12,6 +12,7 @@ urlpatterns = [
     path('trade/', views.trade, name='trade'),
     path('profile/', views.admin_profile, name = 'admin_profile'),
     path('client_profile/<int:profile_id>', views.client_profile, name='client_profile'),
+    path('master_client_profile/<int:profile_id>', views.master_client_profile, name='master_client_profile'),
     path('broker_profile/', views.broker_profile, name='broker_profile'),
     path('profile_update/', views.admin_profile_update, name='admin_profile_update'),
     path('trade_data/', views.trade_data, name='trade_data'),
