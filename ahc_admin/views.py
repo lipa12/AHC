@@ -76,13 +76,33 @@ def trade(request):
 @login_required(login_url="loginuser")
 def client_profile(request, profile_id):
     profile = User.objects.filter(id=profile_id)
-    return render(request, 'ahc_app/pages/profile/client_profile.html', {'profile': profile})
+    return render(request, 'ahc_app/pages/profile/profile_details.html', {'profile': profile})
 
 
 @login_required(login_url="loginuser")
 def master_client_profile(request, profile_id):
     profile = User.objects.filter(id=profile_id)
-    return render(request, 'ahc_app/pages/profile/client_profile.html', {'profile': profile})
+    return render(request, 'ahc_app/pages/profile/profile_details.html', {'profile': profile})
+
+
+def profile_update(request, profile_id):
+    profile = User.objects.filter(id=profile_id)
+    return render(request, 'ahc_app/pages/forms/client_profile_update.html', {'profile': profile})
+
+
+def save_profile_data(request):
+    if request.method == "POST":
+        print(request.POST.get('username'))
+        user = User.objects.get(username=request.POST.get('username'))
+        user.first_name = request.POST.get('firstname')
+        user.last_name = request.POST.get('lastname')
+        user.email = request.POST.get('email')
+        user.mobile_number = request.POST.get('mobile_number')
+
+        user.save()
+
+        return redirect('ahc_admin:index')
+
 
 @login_required(login_url="loginuser")
 def broker_profile(request):

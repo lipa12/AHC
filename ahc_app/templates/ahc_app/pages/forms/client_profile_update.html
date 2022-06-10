@@ -1,0 +1,85 @@
+{% extends 'ahc_app/base.html' %}
+{% load static %}
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1></h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Profile Update</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+
+                <h3 class="card-title">Profile Update <small></small></h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              {% for profile in profile %}
+              <form id="quickForm" method = "POST" action="{% url 'ahc_admin:save_profile_data' %}">
+                {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input type="hidden" name="username" class="form-control" id="username" value="{{profile.username}}" placeholder="{{profile.username}}" >
+                    <input type="text" name="username1" class="form-control" id="username1" value="{{profile.username}}" placeholder="{{profile.username}}" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" name="firstname" class="form-control" id="firstname" value="{{profile.first_name}}" placeholder="{{profile.first_name}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" name="lastname" class="form-control" id="lastname" value="{{profile.last_name}}" placeholder="{{profile.last_name}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" name="email" class="form-control" id="email" value="{{profile.email}}" placeholder="{{profile.email}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="mobile_number">Mobile Number</label>
+                    <input type="number" name="mobile_number" class="form-control" id="mobile_number" value="{{profile.mobile_number}}" placeholder="{{profile.mobile_number}}">
+                  </div>
+
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>LO
+              {% endfor %}
+            </div>
+            <!-- /.card -->
+            </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

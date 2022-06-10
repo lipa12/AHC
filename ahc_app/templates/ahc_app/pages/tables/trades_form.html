@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body >
+
+  <h1>Add Strategies</h1>
+<form method="post" action="{% url 'AHC_App:save_data' %}" >
+  {% csrf_token %}
+  <label for="strategies">strategies:
+  <input type="text" id="strategies" name="strategies"></label><br>
+  <label for="symbol">symbol:
+  <input type="text" id="symbol" name="symbol"></label><br>
+  <label for="expiry_date">expiry_date:
+  <input type="datetime-local" id="expiry_date" name="expiry_date"></label><br>
+  <label for="strike_price">strike_price:
+  <input type="text" id="strike_price" name="strike_price"></label><br>
+  <label for="ce_pe_fut">ce_pe_fut:
+  <input type="text" id="ce_pe_fut" name="ce_pe_fut"></label><br>
+  <label for="mis_nrml">mis_nrml:
+  <input type="text" id="mis_nrml" name="mis_nrml"></label><br>
+  <label for="buy_sell">buy_sell:
+  <input type="text" id="buy_sell" name="buy_sell"></label><br>
+  <label for="order_quantity">order_quantity:
+  <input type="text" id="order_quantity" name="order_quantity"></label><br>
+  <label for="partial_exit_quantity">partial_exit_quantity:
+  <input type="text" id="partial_exit_quantity" name="partial_exit_quantity"></label><br>
+  <label for="target">target:
+  <input type="text" id="target" name="target"></label><br>
+  <label for="buy_sell_spotprice">buy_sell_spotprice:
+  <input type="text" id="buy_sell_spotprice" name="buy_sell_spotprice"></label><br>
+  <label for="stop_loss">stop_loss:
+  <input type="text" id="stop_loss" name="stop_loss"></label><br>
+  <label for="profit_trailing">profit_trailing:
+  <input type="text" id="profit_trailing" name="profit_trailing"></label><br>
+  <label for="trailing_sl_points">trailing_sl_points:
+  <input type="text" id="trailing_sl_points" name="trailing_sl_points"></label><br>
+  <label for="m_ma_mb">m_ma_mb:
+  <input type="text" id="m_ma_mb" name="m_ma_mb"></label><br>
+  <label for="current_sl_position">current_sl_position:
+  <input type="text" id="current_sl_position" name="current_sl_position"></label><br>
+  <label for="trade_status">trade_status:
+  <input type="text" id="trade_status" name="trade_status"></label><br>
+  <label for="executed_price">executed_price:
+  <input type="text" id="executed_price" name="executed_price"></label><br>
+  <label for="live_ltp">live_ltp:
+  <input type="text" id="live_ltp" name="live_ltp"></label><br>
+  <label for="vwap">vwap:
+  <input type="text" id="vwap" name="vwap"></label><br>
+  <label for="mtm">mtm:
+  <input type="text" id="mtm" name="mtm"></label><br>
+  <label for="iv">iv:
+  <input type="text" id="iv" name="iv"></label><br>
+  <label for="delta">delta:
+  <input type="text" id="delta" name="delta"></label><br>
+  <label for="gamma">gamma:
+  <input type="text" id="gamma" name="gamma"></label><br>
+  <label for="rho">rho:
+  <input type="text" id="rho" name="rho"></label><br>
+  <label for="theta">theta:
+  <input type="text" id="theta" name="theta"></label><br>
+  <label for="vega">vega:
+  <input type="text" id="vega" name="vega"></label><br>
+  <label for="volume">volume:
+  <input type="text" id="volume" name="volume"></label><br>
+  <label for="lot_size">lot_size:
+  <input type="text" id="lot_size" name="lot_size"></label><br>
+  <label for="capital_required_to_buy">capital_required_to_buy:
+  <input type="text" id="capital_required_to_buy" name="capital_required_to_buy"></label><br>
+  <label for="order_id">order_id:
+  <input type="text" id="order_id" name="order_id"></label><br>
+  <label for="current_profit_position">current_profit_position:
+  <input type="text" id="current_profit_position" name="current_profit_position"></label><br>
+  <label for="entry_time">entry_time:
+  <input type="datetime-local" id="entry_time" name="entry_time"></label><br>
+  <label for="exit_time">exit_time:
+  <input type="datetime-local" id="exit_time" name="exit_time"></label><br><br><br>
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>
