@@ -98,46 +98,53 @@
                     <th>Exit Time</th>
                   </tr>
                   </thead>
+
                   <tbody>
-                  {% for strategies_number in strategies_data %}
+
+                  <form method="post" action="">
+                    {% for strategies_number in strategies_data %}
                   <tr>
-                    <td>{{strategies_number.strategies}}</td>
-                    <td>{{strategies_number.symbol}}</td>
-                    <td>{{strategies_number.expiry_date}}</td>
-                    <td>{{strategies_number.strike_price}}</td>
-                    <td>{{strategies_number.ce_pe_fut}}</td>
-                    <td>{{strategies_number.mis_nrml}}</td>
-                    <td>{{strategies_number.buy_sell}}</td>
-                    <td>{{strategies_number.order_quantity}}</td>
-                    <td>{{strategies_number.partial_exit_quantity}}</td>
-                    <td>{{strategies_number.target}}</td>
-                    <td>{{strategies_number.buy_sell_spotprice}}</td>
-                    <td>{{strategies_number.stop_loss}}</td>
-                    <td>{{strategies_number.profit_trailing}}</td>
-                    <td>{{strategies_number.trailing_sl_points}}</td>
-                    <td>{{strategies_number.m_ma_mb}}</td>
-                    <td>{{strategies_number.current_sl_position}}</td>
-                    <td>{{strategies_number.trade_status}}</td>
-                    <td>{{strategies_number.executed_price}}</td>
-                    <td>{{strategies_number.live_ltp}}</td>
-                    <td>{{strategies_number.vwap}}</td>
-                    <td>{{strategies_number.mtm}}</td>
-                    <td>{{strategies_number.iv}}</td>
-                    <td>{{strategies_number.delta}}</td>
-                    <td>{{strategies_number.gamma}}</td>
-                    <td>{{strategies_number.rho}}</td>
-                    <td>{{strategies_number.theta}}</td>
-                    <td>{{strategies_number.vega}}</td>
-                    <td>{{strategies_number.volume}}</td>
-                    <td>{{strategies_number.lot_size}}</td>
-                    <td>{{strategies_number.capital_required_to_buy}}</td>
-                    <td>{{strategies_number.order_id}}</td>
-                    <td>{{strategies_number.current_profit_position}}</td>
-                    <td>{{strategies_number.entry_time}}</td>
-                    <td>{{strategies_number.exit_time}}</td>
+                    <td><input type="text" id="strategies" name="strategies" value="{{strategies_number.strategies}}" placeholder="{{strategies_number.strategies}}"></td>
+                    <td><input type="text" id="symbol" name="symbol" value="{{strategies_number.symbol}}" placeholder="{{strategies_number.symbol}}"></td>
+                    <td><input type="datetime-local" id="expiry_date" name="expiry_date" value="{{strategies_number.expiry_date}}" placeholder="{{strategies_number.expiry_date}}"></td>
+                    <td><input type="text" id="strike_price" name="strike_price" value="{{strategies_number.strike_price}}" placeholder="{{strategies_number.strike_price}}"></td>
+                    <td><input type="text" id="ce_pe_fut" name="ce_pe_fut" value="{{strategies_number.ce_pe_fut}}" placeholder="{{strategies_number.ce_pe_fut}}"></td>
+                    <td><input type="text" id="mis_nrml" name="mis_nrml" value="{{strategies_number.mis_nrml}}" placeholder="{{strategies_number.mis_nrml}}"></td>
+                    <td><input type="text" id="buy_sell" name="buy_sell" value="{{strategies_number.buy_sell}}" placeholder="{{strategies_number.buy_sell}}"></td>
+                    <td><input type="text" id="order_quantity" name="order_quantity" value="{{strategies_number.order_quantity}}" placeholder="{{strategies_number.order_quantity}}"></td>
+                    <td><input type="text" id="partial_exit_quantity" name="partial_exit_quantity" value="{{strategies_number.partial_exit_quantity}}" placeholder="{{strategies_number.partial_exit_quantity}}"></td>
+                    <td><input type="text" id="target" name="target" value="{{strategies_number.target}}" placeholder="{{strategies_number.target}}"></td>
+                    <td><input type="text" id="buy_sell_spotprice" name="buy_sell_spotprice" value="{{strategies_number.buy_sell_spotprice}}" placeholder="{{strategies_number.buy_sell_spotprice}}"></td>
+                    <td><input type="text" id="stop_loss" name="stop_loss" value="{{strategies_number.stop_loss}}" placeholder="{{strategies_number.stop_loss}}"></td>
+                    <td><input type="text" id="profit_trailing" name="profit_trailing" value="{{strategies_number.profit_trailing}}" placeholder="{{strategies_number.profit_trailing}}"></td>
+                    <td><input type="text" id="trailing_sl_points" name="trailing_sl_points" value="{{strategies_number.trailing_sl_points}}" placeholder="{{strategies_number.trailing_sl_points}}"></td>
+                    <td><input type="text" id="m_ma_mb" name="m_ma_mb" value="{{strategies_number.m_ma_mb}}" placeholder="{{strategies_number.m_ma_mb}}"></td>
+                    <td><input type="text" id="current_sl_position" name="current_sl_position" value="{{strategies_number.current_sl_position}}" placeholder="{{strategies_number.current_sl_position}}"></td>
+                    <td><input type="text" id="trade_status" name="trade_status" value="{{strategies_number.trade_status}}" placeholder="{{strategies_number.trade_status}}"></td>
+                    <td><input type="text" id="executed_price" name="executed_price" value="{{strategies_number.executed_price}}" placeholder="{{strategies_number.executed_price}}"></td>
+                    <td><input type="text" id="live_ltp" name="live_ltp" value="{{strategies_number.live_ltp}}" placeholder="{{strategies_number.live_ltp}}"></td>
+                    <td><input type="text" id="vwap" name="vwap" value="{{strategies_number.vwap}}" placeholder="{{strategies_number.vwap}}"></td>
+                    <td><input type="text" id="mtm" name="mtm" value="{{strategies_number.mtm}}" placeholder="{{strategies_number.mtm}}"></td>
+                    <td><input type="text" id="iv" name="iv" value="{{strategies_number.iv}}" placeholder="{{strategies_number.iv}}"></td>
+                    <td><input type="text" id="delta" name="delta" value="{{strategies_number.delta}}" placeholder="{{strategies_number.delta}}"></td>
+                    <td><input type="text" id="gamma" name="gamma" value="{{strategies_number.gamma}}" placeholder="{{strategies_number.gamma}}"></td>
+                    <td><input type="text" id="rho" name="rho" value="{{strategies_number.rho}}" placeholder="{{strategies_number.rho}}"></td>
+                    <td><input type="text" id="theta" name="theta" value="{{strategies_number.theta}}" placeholder="{{strategies_number.theta}}"></td>
+                    <td><input type="text" id="vega" name="vega" value="{{strategies_number.vega}}" placeholder="{{strategies_number.vega}}"></td>
+                    <td><input type="text" id="volume" name="volume" value="{{strategies_number.volume}}" placeholder="{{strategies_number.volume}}"></td>
+                    <td><input type="text" id="lot_size" name="lot_size" value="{{strategies_number.lot_size}}" placeholder="{{strategies_number.lot_size}}"></td>
+                    <td><input type="text" id="capital_required_to_buy" name="capital_required_to_buy">{{strategies_number.capital_required_to_buy}}</td>
+                    <td><input type="text" id="order_id" name="order_id" value="{{strategies_number.order_id}}" placeholder="{{strategies_number.order_id}}"></td>
+                    <td><input type="text" id="current_profit_position" name="current_profit_position">{{strategies_number.current_profit_position}}</td>
+                    <td><input type="datetime-local" id="entry_time" name="entry_time" value="{{strategies_number.entry_time}}" placeholder="{{strategies_number.entry_time}}"></td>
+                    <td><input type="datetime-local" id="exit_time" name="exit_time" value="{{strategies_number.exit_time}}" placeholder="{{strategies_number.exit_time}}"></td>
+                    <td><button type="submit">Submit</button></td>
                   </tr>
-                  {% endfor %}
+                    {% endfor %}
+                  </form>
+
                   </tfoot>
+
                 </table>
               </div>
               <!-- /.card-body -->

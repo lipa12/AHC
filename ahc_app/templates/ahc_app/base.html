@@ -384,17 +384,18 @@
             </a>
 
           </li>
+            {% for strategies_number in strategies_number %}
             <li class="nav-item">
-            <a href="{% url 'ahc_admin:trade'%}" class="nav-link">
+            <a href="{% url 'ahc_admin:trade' strategies_number.strategies%}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Trading Strategies
+                Trading Strategies {{strategies_number.strategies}}
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
 
           </li>
-
+          {% endfor %}
 
 
         </ul>
