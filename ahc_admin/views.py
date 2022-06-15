@@ -27,7 +27,8 @@ def index(request):
 def admin_profile(request):
     profile = User.objects.filter(username=request.user.username)
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/profile/admin_profile.html', {'profile': profile,'strategies_number': strategies_number})
+    return render(request, 'ahc_app/pages/profile/admin_profile.html',
+                  {'profile': profile, 'strategies_number': strategies_number})
 
 
 @login_required(login_url="loginuser")
@@ -44,7 +45,8 @@ def admin_profile_update(request):
         user.save()
 
         return redirect('ahc_admin:index')
-    return render(request, 'ahc_app/pages/forms/admin_profile_update.html', {'profile': profile,'strategies_number': strategies_number})
+    return render(request, 'ahc_app/pages/forms/admin_profile_update.html',
+                  {'profile': profile, 'strategies_number': strategies_number})
 
 
 @login_required(login_url="loginuser")
@@ -57,21 +59,23 @@ def trade_data(request):
 def add_client(request):
     user = request.user.username
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/forms/add_client.html',{'strategies_number': strategies_number})
+    return render(request, 'ahc_app/pages/forms/add_client.html', {'strategies_number': strategies_number})
 
 
 @login_required(login_url="loginuser")
 def client_list(request):
     client_list = User.objects.filter(is_client=True)
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/tables/admin_client_list.html', {'client_list': client_list,'strategies_number': strategies_number})
+    return render(request, 'ahc_app/pages/tables/admin_client_list.html',
+                  {'client_list': client_list, 'strategies_number': strategies_number})
 
 
 @login_required(login_url="loginuser")
 def master_client_list(request):
     master_client_list = User.objects.filter(is_super_client=True)
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/tables/master_client_list.html', {'master_client_list': master_client_list,'strategies_number': strategies_number})
+    return render(request, 'ahc_app/pages/tables/master_client_list.html',
+                  {'master_client_list': master_client_list, 'strategies_number': strategies_number})
 
 
 @login_required(login_url="loginuser")
@@ -88,20 +92,23 @@ def trade(request, strategies):
 def client_profile(request, profile_id):
     profile = User.objects.filter(id=profile_id)
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/profile/profile_details.html', {'profile': profile,'strategies_number': strategies_number})
+    return render(request, 'ahc_app/pages/profile/profile_details.html',
+                  {'profile': profile, 'strategies_number': strategies_number})
 
 
 @login_required(login_url="loginuser")
 def master_client_profile(request, profile_id):
     profile = User.objects.filter(id=profile_id)
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/profile/profile_details.html', {'profile': profile,'strategies_number': strategies_number})
+    return render(request, 'ahc_app/pages/profile/profile_details.html',
+                  {'profile': profile, 'strategies_number': strategies_number})
 
 
 def profile_update(request, profile_id):
     profile = User.objects.filter(id=profile_id)
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/forms/client_profile_update.html', {'profile': profile,'strategies_number': strategies_number})
+    return render(request, 'ahc_app/pages/forms/client_profile_update.html',
+                  {'profile': profile, 'strategies_number': strategies_number})
 
 
 def save_profile_data(request):
@@ -121,7 +128,7 @@ def save_profile_data(request):
 @login_required(login_url="loginuser")
 def broker_profile(request):
     strategies_number = TradeStrategies.objects.all()
-    return render(request, 'ahc_app/pages/profile/broker_profile.html',{'strategies_number': strategies_number})
+    return render(request, 'ahc_app/pages/profile/broker_profile.html', {'strategies_number': strategies_number})
 
 
 class AddNewClient(CreateView):
@@ -152,3 +159,47 @@ class AdminSignUpView(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect('loginuser')
+
+
+def trade_save_data(request):
+    if request.method == 'POST':
+        trade_startegies = TradeStrategies.objects.create()
+        trade_startegies.strategies = request.POST.get('strategies')
+        trade_startegies.symbol = request.POST.get('symbol')
+        print(request.POST.get('symbol'))
+        trade_startegies.expiry_date = request.POST.get('expiry_date')
+        trade_startegies.strike_price = request.POST.get('strike_price')
+        trade_startegies.ce_pe_fut = request.POST.get('ce_pe_fut')
+        trade_startegies.mis_nrml = request.POST.get('mis_nrml')
+        trade_startegies.buy_sell = request.POST.get('buy_sell')
+        trade_startegies.order_quantity = request.POST.get('order_quantity')
+        trade_startegies.partial_exit_quantity = request.POST.get('partial_exit_quantity')
+        trade_startegies.target = request.POST.get('target')
+        trade_startegies.buy_sell_spotprice = request.POST.get('buy_sell_spotprice')
+        trade_startegies.stop_loss = request.POST.get('stop_loss')
+        trade_startegies.profit_trailing = request.POST.get('profit_trailing')
+        trade_startegies.trailing_sl_points = request.POST.get('trailing_sl_points')
+        trade_startegies.m_ma_mb = request.POST.get('m_ma_mb')
+        trade_startegies.current_sl_position = request.POST.get('current_sl_position')
+        trade_startegies.trade_status = request.POST.get('trade_status')
+        trade_startegies.executed_price = request.POST.get('executed_price')
+        trade_startegies.live_ltp = request.POST.get('live_ltp')
+        trade_startegies.vwap = request.POST.get('vwap')
+        trade_startegies.mtm = request.POST.get('mtm')
+        trade_startegies.iv = request.POST.get('iv')
+        trade_startegies.delta = request.POST.get('delta')
+        trade_startegies.gamma = request.POST.get('gamma')
+        trade_startegies.rho = request.POST.get('rho')
+        trade_startegies.theta = request.POST.get('theta')
+        trade_startegies.vega = request.POST.get('vega')
+        trade_startegies.volume = request.POST.get('volume')
+        trade_startegies.lot_size = request.POST.get('lot_size')
+        trade_startegies.capital_required_to_buy = request.POST.get('capital_required_to_buy')
+        trade_startegies.order_id = request.POST.get('order_id')
+        trade_startegies.current_profit_position = request.POST.get('current_profit_position')
+        trade_startegies.entry_time = request.POST.get('entry_time')
+        trade_startegies.exit_time = request.POST.get('exit_time')
+
+        trade_startegies.save()
+
+        return redirect("/")

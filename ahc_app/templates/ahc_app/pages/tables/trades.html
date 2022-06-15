@@ -101,7 +101,8 @@
 
                   <tbody>
 
-                  <form method="post" action="">
+                  <form method="post" action="{% url  'ahc_admin:trade_save_data' %}">
+                  {% csrf_token %}
                     {% for strategies_number in strategies_data %}
                   <tr>
                     <td><input type="text" id="strategies" name="strategies" value="{{strategies_number.strategies}}" placeholder="{{strategies_number.strategies}}"></td>
@@ -133,9 +134,9 @@
                     <td><input type="text" id="vega" name="vega" value="{{strategies_number.vega}}" placeholder="{{strategies_number.vega}}"></td>
                     <td><input type="text" id="volume" name="volume" value="{{strategies_number.volume}}" placeholder="{{strategies_number.volume}}"></td>
                     <td><input type="text" id="lot_size" name="lot_size" value="{{strategies_number.lot_size}}" placeholder="{{strategies_number.lot_size}}"></td>
-                    <td><input type="text" id="capital_required_to_buy" name="capital_required_to_buy">{{strategies_number.capital_required_to_buy}}</td>
+                    <td><input type="text" id="capital_required_to_buy" name="capital_required_to_buy" value="{{strategies_number.capital_required_to_buy}}" placeholder="{{strategies_number.capital_required_to_buy}}"></td>
                     <td><input type="text" id="order_id" name="order_id" value="{{strategies_number.order_id}}" placeholder="{{strategies_number.order_id}}"></td>
-                    <td><input type="text" id="current_profit_position" name="current_profit_position">{{strategies_number.current_profit_position}}</td>
+                    <td><input type="text" id="current_profit_position" name="current_profit_position" value="{{strategies_number.current_profit_position}}" placeholder="{{strategies_number.current_profit_position}}"></td>
                     <td><input type="datetime-local" id="entry_time" name="entry_time" value="{{strategies_number.entry_time}}" placeholder="{{strategies_number.entry_time}}"></td>
                     <td><input type="datetime-local" id="exit_time" name="exit_time" value="{{strategies_number.exit_time}}" placeholder="{{strategies_number.exit_time}}"></td>
                     <td><button type="submit">Submit</button></td>

@@ -19,6 +19,8 @@ from ahc_app.models import User
 #
 # # Create your views here.
 #
+from ahc_client.models import TradeStrategies
+
 
 class SignUpView(TemplateView):
     template_name = 'registration/signup.html'
