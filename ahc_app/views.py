@@ -6,8 +6,9 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-from ahc_app.models import User
+from rest_framework import generics
 
+from ahc_app.models import User
 
 # from django.shortcuts import render, redirect, get_object_or_404
 # from .models import *
@@ -19,6 +20,7 @@ from ahc_app.models import User
 #
 # # Create your views here.
 #
+from ahc_app.serializer import PayLoadSerializer
 from ahc_client.models import TradeStrategies
 
 
@@ -144,7 +146,6 @@ def logoutuser(request):
         return redirect('loginuser')
 
 
-
 def save_data(request):
     if request.method == 'POST':
         trade_startegies = TradeStrategies.objects.create()
@@ -186,3 +187,8 @@ def save_data(request):
         trade_startegies.save()
 
         return redirect('AHC_App:index')
+
+
+class Payload(generics.ListAPIView):
+    queryset = TradeStrategies.objects.all()
+    serializer_class = PayLoadSerializer

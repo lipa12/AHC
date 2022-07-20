@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'ahc_super_client',
     'ahc_broker',
     'ahc_admin',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

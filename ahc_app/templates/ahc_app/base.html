@@ -626,5 +626,64 @@
       });
 
     </script>
+<script>
+
+    $(document).ready(function () {
+  $("form").submit(function (event) {
+    setInterval(function() {
+        $.ajax({
+            type: "POST",
+            url: "{% url  'ahc_admin:trade_save_data' %}",
+            data: {
+                'csrfmiddlewaretoken':$( "input[name='csrfmiddlewaretoken']" ).val(),
+                  'strategies': $("#strategies").val(),
+                  'symbol': $("#symbol").val(),
+                  'expiry_date': $("#expiry_date").val(),
+                  'strike_price': $("#strike_price").val(),
+                  'ce_pe_fut': $("#ce_pe_fut").val(),
+                  'mis_nrml': $("#mis_nrml").val(),
+                  'buy_sell': $("#buy_sell").val(),
+                  'order_quantity': $("#order_quantity").val(),
+                  'partial_exit_quantity': $("#partial_exit_quantity").val(),
+                  'target': $("#target").val(),
+                  'buy_sell_spotprice': $("#buy_sell_spotprice").val(),
+                  'stop_loss': $("#stop_loss").val(),
+                  'profit_trailing': $("#profit_trailing").val(),
+                  'trailing_sl_points': $("#trailing_sl_points").val(),
+                  'm_ma_mb': $("#m_ma_mb").val(),
+                  'current_sl_position': $("#current_sl_position").val(),
+                  'trade_status': $("#trade_status").val(),
+                  'executed_price': $("#executed_price").val(),
+                  'live_ltp': $("#live_ltp").val(),
+                  'vwap': $("#vwap").val(),
+                  'mtm': $("#mtm").val(),
+                  'iv': $("#iv").val(),
+                  'delta': $("#delta").val(),
+                  'gamma': $("#gamma").val(),
+                  'rho': $("#rho").val(),
+                  'theta': $("#theta").val(),
+                  'vega': $("#vega").val(),
+                  'volume': $("#volume").val(),
+                  'lot_size': $("#lot_size").val(),
+                  'capital_required_to_buy': $("#capital_required_to_buy").val(),
+                  'order_id': $("#order_id").val(),
+                  'current_profit_position': $("#current_profit_position").val(),
+                  'entry_time': $("#entry_time").val(),
+                  'exit_time': $("#exit_time").val(),
+            },
+            dataType: "json",
+            encode: true,
+        }).done(function (data) {
+            console.log(data);
+        });
+    },1000);
+
+
+    event.preventDefault();
+  });
+});
+
+
+</script>
 </body>
 </html>
