@@ -10,7 +10,8 @@ urlpatterns = [
     # path('dashboard/', views.dashboard, name='dashboard'),
     path('dashboard2/', views.dashboard2, name='dashboard2'),
     path('dashboard3/', views.dashboard3, name='dashboard3'),
-    path('api/payload', views.Payload.as_view())
+    path('api/payload', views.Payload.as_view()),
+    path('api/tradepayload', views.PayloadTrade.as_view())
     # path('login/', views.user_login, name='user_login'),
     # path('signup/', views.user_signup, name='user_signup'),
     # path('ach_client_login/', views.ahc_client_signin, name='ahc_client_signin'),

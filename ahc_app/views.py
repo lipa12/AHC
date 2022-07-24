@@ -20,8 +20,8 @@ from ahc_app.models import User
 #
 # # Create your views here.
 #
-from ahc_app.serializer import PayLoadSerializer
-from ahc_client.models import TradeStrategies
+from ahc_app.serializer import PayLoadSerializer, TradePayloadSerializer
+from ahc_client.models import TradeStrategies, TradePayload
 
 
 class SignUpView(TemplateView):
@@ -192,3 +192,8 @@ def save_data(request):
 class Payload(generics.ListAPIView):
     queryset = TradeStrategies.objects.all()
     serializer_class = PayLoadSerializer
+
+
+class PayloadTrade(generics.ListAPIView):
+    queryset =  TradePayload.objects.all()
+    serializer_class = TradePayloadSerializer
